@@ -1,28 +1,31 @@
 <div class="container">
   <div class="login-form">
-  <div class="main-div">
+    <div class="main-div">
       <div class="panel">
-     <h2>Register coach</h2>
-     <p>Please enter your email and password to register</p>
-     </div>
-      <form id="Login">
-  
-          <div class="form-group">
-  
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
-
-              <input type="name" class="form-control" id="inputName" placeholder="First name">
-
-              <input type="lastname" class="form-control" id="inputLastName" placeholder="Last name">
-
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-  
-          </div>
-
-          <button type="submit" class="btn btn-primary">Register</button>
-  
+        <h2>Register coach</h2>
+        <p>Please fill out the form to register</p>
+      </div>
+      <div>{{registerForm.valid}}</div>
+      <form id="Login" class="form-group" [formGroup]="registerForm" novalidate (submit)="onSubmit(registerForm)">
+        <input class="form-control" type="email" matInput placeholder="email" formControlName="email" ngModel [email]="true">
+        <div class="inputError" *ngIf="registerForm.controls.email.errors?.required && registerForm.controls.email.touched">
+          Please fill out the email
+        </div>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="First name">
+        <div class="inputError" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">
+          Please fill out the first name
+        </div>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
+        <div class="inputError" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">
+          Please fill out the last name
+        </div>
+        <input class="form-control" type="password" matInput placeholder="password" formControlName="password">
+        <div class="inputError" *ngIf="registerForm.controls.password.errors?.required && registerForm.controls.password.touched">
+          Please fill out the password
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
       </form>
       <a routerLink="/login">Already have an account</a>
-      </div>
-  </div></div>
-  
+    </div>
+  </div>
+</div>

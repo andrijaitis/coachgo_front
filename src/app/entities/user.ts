@@ -5,3 +5,12 @@ export class User {
     public firstName: String;
     public lastName: String;
 }
+
+
+// export class User {
+//     public password: String;
+//     public email: String;
+//     public type: String;
+//     public username: String;
+
+// }
