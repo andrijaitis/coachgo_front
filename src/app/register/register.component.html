@@ -5,7 +5,6 @@
         <h2>Register coach</h2>
         <p>Please fill out the form to register</p>
       </div>
-      <div>{{registerForm.valid}}</div>
       <form id="Login" class="form-group" [formGroup]="registerForm" novalidate (submit)="onSubmit(registerForm)">
         <input class="form-control" type="email" matInput placeholder="email" formControlName="email" ngModel [email]="true">
         <div class="inputError" *ngIf="registerForm.controls.email.errors?.required && registerForm.controls.email.touched">
