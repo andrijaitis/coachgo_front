@@ -12,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  private registerForm;
+  public registerForm;
   constructor(private userService: UserService, private http: HttpClient, private router: Router,
     private fb: FormBuilder) { }
 
