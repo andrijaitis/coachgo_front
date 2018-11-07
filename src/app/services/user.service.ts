@@ -24,5 +24,9 @@ export class UserService {
     this.http.post<User>(environment.USERS_URL, user, httpOptions);
     return this.http.post<User>(environment.USERS_URL, user, httpOptions);
   }
+  login(user: User) {
+    return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
+  }
+
 
 }

@@ -9,6 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CoachDashComponent } from './coach-dash/coach-dash.component';
+import { AuthGuard } from './auth-guard';
+import { AuthService } from './auth.service';
+import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 
 
 
@@ -18,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CoachDashComponent,
+    AddAthleteComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

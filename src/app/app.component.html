@@ -1,4 +1,4 @@
-<!-- Paprastas bootstreao navbaras -->
+<!-- Paprastas bootstreap navbaras -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand"routerLink="home">CouchGO</a>
@@ -13,10 +13,13 @@
       
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Add athlete</a>
+      <a class="nav-link" routerLink="addathlete">Add athlete</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">kazkokia kita funkcija</a>
+      <a class="nav-link" routerLink="coachdash">Coach Dash</a>
+    </li>
+    <li >
+      <a (click)="logout()" style="color: rgb(30, 92, 172);">Logout(experimental)</a>
     </li>
   </ul>
 </nav>

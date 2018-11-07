@@ -1,4 +1,5 @@
 export class User {
+  [x: string]: any;
     public email: String;
     public password: String;
     public type: String;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 
 @Component({
@@ -9,4 +10,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'couchgo';
+
+
+  constructor(private authService: AuthService) {
+
+}
+
+  logout() {
+    this.authService.logout();
+    alert('logged out');
+  }
 }
