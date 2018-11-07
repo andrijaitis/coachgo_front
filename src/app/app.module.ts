@@ -13,6 +13,7 @@ import { CoachDashComponent } from './coach-dash/coach-dash.component';
 import { AuthGuard } from './auth-guard';
 import { AuthService } from './auth.service';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
+import { SupportComponent } from './support/support.component';
 
 
 
@@ -24,7 +25,8 @@ import { AddAthleteComponent } from './add-athlete/add-athlete.component';
     HomeComponent,
     LoginComponent,
     CoachDashComponent,
-    AddAthleteComponent
+    AddAthleteComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,
