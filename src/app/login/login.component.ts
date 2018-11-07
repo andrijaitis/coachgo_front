@@ -16,8 +16,6 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
 
   posts: Observable<Object>;
-  userEmail: String;
-  readonly ROOT_URL = 'http://localhost:3000/api/users/login';
   public loginForm: FormGroup;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
