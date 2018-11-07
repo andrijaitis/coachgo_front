@@ -1,17 +1,10 @@
-<!-- Paprastas bootstreap navbaras -->
+<!-- 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
+
   <a class="navbar-brand"routerLink="home">CouchGO</a>
-  
-  <!-- Links -->
+
   <ul class="navbar-nav">
-    <!-- <li class="nav-item">
-      <a class="nav-link" routerLink="login">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="register">Register</a>
-      
-    </li> -->
+
     <li class="nav-item">
       <a class="nav-link" routerLink="addathlete">Add athlete</a>
     </li>
@@ -22,5 +15,37 @@
       <a  class="nav-link" (click)="logout()" href="#" style="color: rgb(30, 92, 172);">Logout(experimental)</a>
     </li>
   </ul>
-</nav>
+</nav> -->
+
+
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
+        <a class="navbar-brand" routerLink="home">CouchGO</a>
+        <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                    <a class="nav-link" routerLink="addathlete">Add athlete</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="coachdash">Coach Dash</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  
+            </form>
+            <button  class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" href="#" >Logout(experimental)</button>
+        </div>
+    </nav>
+
+
+</body>
+
 <router-outlet></router-outlet>
