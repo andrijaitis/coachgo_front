@@ -8,6 +8,7 @@ import { CoachDashComponent } from './coach-dash/coach-dash.component';
 import { AuthGuard } from './auth-guard';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
+import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'coachdash', component: CoachDashComponent, canActivate: [AuthGuard] },
   { path: 'addathlete', component: AddAthleteComponent, canActivate: [AuthGuard] },
+  { path: 'athletedetail/:id', component: AthleteDetailComponent, canActivate: [AuthGuard]  },
   { path: 'support', component: SupportComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

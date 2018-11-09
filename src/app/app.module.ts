@@ -14,6 +14,7 @@ import { AuthGuard } from './auth-guard';
 import { AuthService } from './auth.service';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
+import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';
 
 
 
@@ -26,7 +27,8 @@ import { SupportComponent } from './support/support.component';
     LoginComponent,
     CoachDashComponent,
     AddAthleteComponent,
-    SupportComponent
+    SupportComponent,
+    AthleteDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,114 @@
-<p>
-  add-athlete  is in progress,
-  seni butu gerai pasikalbeti ka cia tisliai deti, kad butu maziau development
-</p>
+<button class="btn btn-primary" (click)="toggle()" id="bt">
+    Add a new athelte
+</button>
+<div>
+  <div *ngIf="show" class="container ">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3 >Add a new athelete</h3>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+          <div class="form-group">
+            <label for="firstName">firstName</label>
+            <input type="text" class="form-control" name="firstName" [(ngModel)]="athleteModel.firstName" #firstName="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">firstName is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">lastName</label>
+            <input type="text" class="form-control" name="lastName" [(ngModel)]="athleteModel.lastName" #lastName="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+              <div *ngIf="lastName.errors.required">lastName is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="age">age</label>
+            <input type="text" class="form-control" name="age" [(ngModel)]="athleteModel.age"
+              #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required />
+            <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+              <div *ngIf="age.errors.required">age is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateCreated">Date</label>
+            <input type="text" class="form-control" name="dateCreated" [(ngModel)]="athleteModel.dateCreated" #dateCreated="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && dateCreated.invalid }" required />
+            <div *ngIf="f.submitted && dateCreated.invalid" class="invalid-feedback">
+              <div *ngIf="dateCreated.errors.required">Date is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sport">sport</label>
+            <input type="text" class="form-control" name="sport" [(ngModel)]="athleteModel.sport" #sport="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && sport.invalid }" required />
+            <div *ngIf="f.submitted && sport.invalid" class="invalid-feedback">
+              <div *ngIf="sport.errors.required">sport is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">phone</label>
+            <input type="text" class="form-control" name="phone" [(ngModel)]="athleteModel.phone" #phone="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required />
+            <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+              <div *ngIf="phone.errors.required">phone is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="athleteModel.email" #email="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required />
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required">email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="active">active</label>
+            <input type="text" class="form-control" name="active" [(ngModel)]="athleteModel.active" #active="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && active.invalid }" required />
+            <div *ngIf="f.submitted && active.invalid" class="invalid-feedback">
+              <div *ngIf="active.errors.required">active is required</div>
+            </div>
+          </div>
+     
+          <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button (click)="test()" class="btn btn-primary">test</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Sport</th>
+        <th scope="col">Active</th>
+        <th scope="col">Date created</th>
+        <th scope="col">....</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let athlete of athletes; index as i;">
+        <th>{{athlete.id}}</th>
+        <td>{{athlete.firstName}}</td>
+        <td>{{athlete.sport}}</td>
+        <td>{{athlete.active}}</td>
+        <td>{{athlete.dateCreated | date:'medium' }}</td>
+
+        <!-- <td>{{athelte.dateCreated | date:'medium' }}</td> -->
+        <td>
+          <button routerLink="/athletedetail/{{athlete.id}}" class="btn btn-primary">Edit</button>
+          <button (click)="delete(athlete)" class="btn btn-primary">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
