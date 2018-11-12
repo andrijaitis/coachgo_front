@@ -11,7 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoachDashComponent } from './coach-dash/coach-dash.component';
 import { AuthGuard } from './auth-guard';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
 import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';

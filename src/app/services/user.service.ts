@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 import { environment } from '../../environments/environment';
 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -27,6 +28,7 @@ export class UserService {
   login(user: User) {
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
+
 
 
 }
