@@ -4,7 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { catchError } from 'rxjs/operators';
-const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token')})};
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
+ 'Authorization': 'Bearer ' + localStorage.getItem('token')
+})};
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class AthleteService {
   }
 
   getAthletes(): Observable<Athlete[]> {
-    return this.http.get<Athlete[]>(environment.apiUrl + '/athletes');
+    return this.http.get<Athlete[]>(environment.apiUrl + '/athletes', httpOptions);
   }
 
   constructor(private http: HttpClient) { }
