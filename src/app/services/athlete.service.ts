@@ -4,19 +4,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { catchError } from 'rxjs/operators';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-
-};
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token')})};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AthleteService {
 
-
   addAthlete(athlete: Athlete): Observable<Athlete> {
     console.log(athlete);
+
     return this.http.post<Athlete>(environment.apiUrl + '/athlete', athlete, httpOptions);
   }
 

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../entities/user';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   posts: Observable<Object>;
   public loginForm: FormGroup;
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
   constructor(private http: HttpClient,
@@ -43,8 +43,11 @@ export class LoginComponent implements OnInit {
     if (loginForm.valid) {
       const user: User = loginForm.value;
       this.userService.login(user).subscribe((answer) => (
+        console.log(answer),
+        localStorage.setItem('token', answer.token),
+        localStorage.setItem('userId', answer.userId),
         this.authService.login(answer.status).subscribe(() => {
-          this.router.navigate(['coachdash']);
+            this.router.navigate(['coachdash']);
           loginForm.value = false;
           if (answer.status === false) {
             alert('bitch u suck, wrong password or email!!!');

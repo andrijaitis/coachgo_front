@@ -10,7 +10,7 @@ import { Observable } from 'rxjs-compat';
 
 @Injectable()
 export class AuthService {
-  isLoggedIn = true; //always false
+  isLoggedIn = false;
   private loggedInUser: any;
   redirectUrl: string;
 
