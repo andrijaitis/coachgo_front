@@ -45,14 +45,7 @@ export class LoginComponent implements OnInit {
     if (loginForm.valid) {
       const user: User = loginForm.value;
       this.userService.login(user).subscribe((answer) => (
-        this.userService.setToken(answer.token),
-        console.log(answer),
-        setTimeout(() => {
-          localStorage.setItem('token', answer.token),
-        localStorage.setItem('userId', answer.userId);
-        }, 5000),
-        
-        console.log('token set: ' + localStorage.getItem('token')),
+        // this.userService.setToken(answer.token),
         this.authService.login(answer.status).subscribe(() => {
             this.router.navigate(['coachdash']);
           loginForm.value = false;
