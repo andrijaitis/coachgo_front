@@ -10,11 +10,12 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'couchgo';
+  userID = localStorage.getItem('userId');
 
-  @HostListener('window:onbeforeunload', ['$event'])
-  clearLocalStorage(event) {
-      localStorage.clear();
-  }
+  // @HostListener('window:onbeforeunload', ['$event'])
+  // clearLocalStorage(event) {
+  //     localStorage.clear();
+  // }
 
 
 
