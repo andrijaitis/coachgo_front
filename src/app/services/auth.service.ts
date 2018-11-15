@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
-
-// import { Observable } from 'rxjs/Observable';
 import { Observable } from 'rxjs-compat';
 
-
-// import 'rxjs/add/observable/of';
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/delay';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +19,12 @@ export class AuthService {
       console.log('logged outddd');
 
   }
+
+
+
+
+
+
 }
 
 
