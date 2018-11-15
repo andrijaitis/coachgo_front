@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,6 +15,10 @@ import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
 import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';
 import { AuthInterceptor } from 'src/interceptors/AuthInterceptor';
+import { StoreModule, MetaReducer } from '@ngrx/store';
+import { postReducer } from './reducers/post.reducer';
+import { authReducer } from './reducers/auth.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -37,6 +40,13 @@ import { AuthInterceptor } from 'src/interceptors/AuthInterceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({
+      post: postReducer, auth: authReducer
+
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    })
   ],
   providers: [AuthGuard, AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

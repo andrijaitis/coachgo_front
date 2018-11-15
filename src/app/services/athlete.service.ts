@@ -20,13 +20,10 @@ export class AthleteService implements OnInit {
  
 
   addAthlete(athlete: Athlete): Observable<Athlete> {
-//     localStorage.setItem('token', this.userService.getToken());
-// console.log('shit i got back ', this.userService.getToken() );
     return this.http.post<Athlete>(environment.apiUrl + '/athlete', athlete);
   }
 
   getAthletes(): Observable<Athlete[]> {
-    // localStorage.setItem('token', this.userService.getToken());
     return this.http.get<Athlete[]>(environment.apiUrl + '/athletes');
   }
 
