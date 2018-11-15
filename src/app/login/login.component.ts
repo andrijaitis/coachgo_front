@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         console.log(answer),
         setTimeout(() => {
           localStorage.setItem('token', answer.token),
-        localStorage.setItem('userId', answer.userId)
+        localStorage.setItem('userId', answer.userId);
         }, 5000),
         
         console.log('token set: ' + localStorage.getItem('token')),
