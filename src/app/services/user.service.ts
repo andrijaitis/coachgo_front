@@ -26,12 +26,12 @@ export class UserService {
     return this.http.post<User>(environment.USERS_URL, user, httpOptions);
   }
   login(user: User) {
-    // localStorage.clear();
-    // this.http.post<User>(environment.USERS_URL_login, user, httpOptions).subscribe((answer) => (
+    localStorage.clear();
+    this.http.post<User>(environment.USERS_URL_login, user, httpOptions).subscribe((answer) => (
       // this.theToken = answer.token
-      // localStorage.setItem('token', answer.token),
-      // localStorage.setItem('userId', answer.userId)
-      //  ));
+      localStorage.setItem('token', answer.token),
+      localStorage.setItem('userId', answer.userId)
+       ));
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
 
