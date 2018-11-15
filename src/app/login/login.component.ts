@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
 
   onSubmitLogin(loginForm) {
-    localStorage.clear();
+    // localStorage.clear();
     if (loginForm.valid) {
       const user: User = loginForm.value;
       this.userService.login(user).subscribe((answer) => (
