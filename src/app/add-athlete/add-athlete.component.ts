@@ -11,19 +11,7 @@ import { UserService } from '../services/user.service';
 export class AddAthleteComponent implements OnInit {
   athleteModel: any = {};
   athletes: Athlete[] = [
-    {
-      id: '2',
-      email: 'hans@gmail.com',
-      activity: 'Cricket',
-      firstName: 'Mantas',
-      lastName: 'Lopas',
-      age: '32',
-      height: '200',
-      dateCreated: '20140313T00:00:00',
-      sport: 'Basketball',
-      phone: '84654',
-      active: 'false'
-    }
+  
   ];
   somearray = [];
   public show = false;
