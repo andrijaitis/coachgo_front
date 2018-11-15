@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-
+  theToken: string;
   isLoggedIn = false;
   // too lazy to make share same url :(((
   // readonly USERS_URL = 'http://localhost:3000/api/register';
@@ -27,13 +27,19 @@ export class UserService {
   }
   login(user: User) {
     this.http.post<User>(environment.USERS_URL_login, user, httpOptions).subscribe((answer) => (
-      localStorage.setItem('token', answer.token),
-      localStorage.setItem('userId', answer.userId) ));
+      this.theToken = answer.token
+      // localStorage.setItem('token', answer.token),
+      // localStorage.setItem('userId', answer.userId)
+       ));
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
 
   setToken(token: string) {
     localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return this.theToken;
   }
 
 
