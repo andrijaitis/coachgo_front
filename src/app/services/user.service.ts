@@ -27,6 +27,9 @@ export class UserService {
   }
   login(user: User) {
     localStorage.setItem('userId', 'nfgfdggaaa');
+
+    this.http.post<User>(environment.USERS_URL_login, user, httpOptions).subscribe((answer) => (
+      localStorage.setItem('userId', answer.token) ));
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
 
