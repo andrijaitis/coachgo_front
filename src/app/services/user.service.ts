@@ -30,6 +30,9 @@ export class UserService {
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
 
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
 
 
 }
