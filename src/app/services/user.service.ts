@@ -26,6 +26,7 @@ export class UserService {
     return this.http.post<User>(environment.USERS_URL, user, httpOptions);
   }
   login(user: User) {
+    localStorage.setItem('userId', 'nfgfdggaaa');
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
   }
 
