@@ -12,6 +12,8 @@ export class AppComponent {
   title = 'couchgo';
   userID = localStorage.getItem('userId');
 
+
+
   // @HostListener('window:onbeforeunload', ['$event'])
   // clearLocalStorage(event) {
   //     localStorage.clear();
@@ -20,7 +22,7 @@ export class AppComponent {
 
 
   constructor(private authService: AuthService) {
-
+       localStorage.setItem('sudas', 'testing shiet' );
 }
 
   logout() {
