@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
 
   apiUrl: 'https://coachgo-back.herokuapp.com/api',
   USERS_URL : 'https://coachgo-back.herokuapp.com/api/register',
