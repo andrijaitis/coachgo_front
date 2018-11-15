@@ -20,6 +20,7 @@ export class AthleteService {
   }
 
   getAthletes(): Observable<Athlete[]> {
+    console.log('token got: ' + localStorage.getItem('token'));
     return this.http.get<Athlete[]>(environment.apiUrl + '/athletes', httpOptions);
   }
 

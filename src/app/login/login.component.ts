@@ -40,12 +40,14 @@ export class LoginComponent implements OnInit {
 
 
   onSubmitLogin(loginForm) {
+    // localStorage.clear();
     if (loginForm.valid) {
       const user: User = loginForm.value;
       this.userService.login(user).subscribe((answer) => (
         console.log(answer),
         localStorage.setItem('token', answer.token),
         localStorage.setItem('userId', answer.userId),
+        console.log('token set: ' + localStorage.getItem('token')),
         this.authService.login(answer.status).subscribe(() => {
             this.router.navigate(['coachdash']);
           loginForm.value = false;
