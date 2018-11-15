@@ -40,12 +40,14 @@ export class LoginComponent implements OnInit {
 
 
   onSubmitLogin(loginForm) {
-    localStorage.setItem('userId', 'dxfcgvhbjkl');
-    // localStorage.clear();
+    // localStorage.setItem('userId', 'dxfcgvhbjkl');
+    localStorage.clear();
     if (loginForm.valid) {
       const user: User = loginForm.value;
       this.userService.login(user).subscribe((answer) => (
         // this.userService.setToken(answer.token),
+              localStorage.setItem('token', answer.token),
+      localStorage.setItem('userId', answer.userId),
         this.authService.login(answer.status).subscribe(() => {
             this.router.navigate(['coachdash']);
           loginForm.value = false;
