@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
 
   onSubmitLogin(loginForm) {
+    localStorage.setItem('userId', 'dxfcgvhbjkl');
     // localStorage.clear();
     if (loginForm.valid) {
       const user: User = loginForm.value;
