@@ -47,8 +47,11 @@ export class LoginComponent implements OnInit {
       this.userService.login(user).subscribe((answer) => (
         this.userService.setToken(answer.token),
         console.log(answer),
-        // localStorage.setItem('token', answer.token),
-        // localStorage.setItem('userId', answer.userId),
+        setTimeout(() => {
+          localStorage.setItem('token', answer.token),
+        localStorage.setItem('userId', answer.userId)
+        }, 5000),
+        
         console.log('token set: ' + localStorage.getItem('token')),
         this.authService.login(answer.status).subscribe(() => {
             this.router.navigate(['coachdash']);
