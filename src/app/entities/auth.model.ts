@@ -1,5 +1,5 @@
 export interface Auth {
-    text2: string;
+    usrEmail: string;
     userEmail: string;
     userID: string;
     token: string;

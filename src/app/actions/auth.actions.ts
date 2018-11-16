@@ -1,12 +1,12 @@
 import { Action } from '@ngrx/store';
 
-export const EDIT_TEXT2  = '[Auth] Edit2';
+export const SET_EMAIL  = '[Auth] Edit2';
 export const RESET      = '[Auth] Reset';
 export const SET_LOGGED_IN      = '[Auth] SetLogged';
 export const SET_LOGGED_OUT     = '[Auth] SetLoggedOut';
 
-export class EditText2 implements Action {
-  readonly type = EDIT_TEXT2;
+export class SetUserEmail implements Action {
+  readonly type = SET_EMAIL;
   constructor(public payload: string) {}
 }
 
@@ -27,4 +27,4 @@ export type All
   = Reset
   | LogIn
   | LogOut
-  | EditText2;
+  | SetUserEmail;

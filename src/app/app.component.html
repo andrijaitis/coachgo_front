@@ -35,18 +35,17 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="register">Sign up</a>
                 </li>
-                <li *ngIf="userID" class="nav-item">
-                    <!-- <a class="nav-link" >{{(auth | async)?.text2}}</a> -->
-                    <a class="nav-link" >{{(auth | async)?.isLoggedIn}}</a>
+                <li *ngIf="(auth | async)?.isLoggedIn" class="nav-item">
+                    <a class="nav-link" >{{(auth | async)?.usrEmail}}</a>
+                    <!-- <a class="nav-link" >{{(auth | async)?.isLoggedIn}}</a> -->
                     
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  
-            </form>
-            <button  class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" routerLink="/home" >Logout(experimental)</button>
+              </form>
+            <button  class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" routerLink="/home" >Logout</button>
         </div>
     </nav>
 
@@ -73,7 +72,7 @@
   </div>
 
   <div>
-      <div>{{(auth | async)?.text2}}</div>
+      <div>{{(auth | async)?.usrEmail}}</div>
     
     <button (click)="changeAuhtText()" >change shiet</button>
     </div> -->

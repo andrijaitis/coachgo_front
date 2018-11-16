@@ -49,7 +49,7 @@ downvote() {
 }
 
 changeAuhtText() {
-  this.store.dispatch(new AuthActions.EditText2('shit'));
+  this.store.dispatch(new AuthActions.SetUserEmail('shit'));
 }
 logout() {
     this.userService.logout();
