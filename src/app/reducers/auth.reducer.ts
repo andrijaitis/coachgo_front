@@ -23,6 +23,12 @@ export function authReducer(state: Auth = defaultState, action: Action) {
         case AuthActions.EDIT_TEXT2:
             return newState(state, { text2: action.payload });
 
+        case AuthActions.SET_LOGGED_IN:
+            return newState(state, { isLoggedIn: state.isLoggedIn = true });
+ 
+        case AuthActions.SET_LOGGED_OUT:
+            return newState(state, { isLoggedIn: state.isLoggedIn = false });
+
         case AuthActions.RESET:
             return defaultState;
 

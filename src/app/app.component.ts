@@ -52,7 +52,7 @@ changeAuhtText() {
   this.store.dispatch(new AuthActions.EditText2('shit'));
 }
 logout() {
-    this.authService.logout();
+    this.userService.logout();
     alert('logged out');
   }
 }

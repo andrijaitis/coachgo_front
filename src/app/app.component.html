@@ -36,7 +36,9 @@
                     <a class="nav-link" routerLink="register">Sign up</a>
                 </li>
                 <li *ngIf="userID" class="nav-item">
-                    <a class="nav-link" >{{(auth | async)?.text2}}</a>
+                    <!-- <a class="nav-link" >{{(auth | async)?.text2}}</a> -->
+                    <a class="nav-link" >{{(auth | async)?.isLoggedIn}}</a>
+                    
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

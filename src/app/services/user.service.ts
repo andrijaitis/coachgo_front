@@ -33,9 +33,15 @@ export class UserService {
       localStorage.setItem('userId', answer.userId),
       this.theToken = answer.token,
       this.theUser = answer.userId,
-      this.store.dispatch(new AuthActions.EditText2(answer.userId))
+      this.store.dispatch(new AuthActions.EditText2(answer.userId)),
+      this.store.dispatch(new AuthActions.LogIn())
        ));
     return this.http.post<User>(environment.USERS_URL_login, user, httpOptions);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.store.dispatch(new AuthActions.LogOut())
   }
 
   setToken(token: string) {
