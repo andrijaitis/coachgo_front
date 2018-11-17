@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  constructor(private authService: AuthService, private userService: UserService, private store: Store<AppState> ) {
+  constructor(private authService: AuthService, private store: Store<AppState> ) {
       this.post = this.store.select('post');
       this.auth = this.store.select('auth');
 
@@ -51,9 +51,6 @@ downvote() {
 changeAuhtText() {
   this.store.dispatch(new AuthActions.SetUserEmail('shit'));
 }
-logout() {
-    this.userService.logout();
-    alert('logged out');
-  }
+
 }
 
