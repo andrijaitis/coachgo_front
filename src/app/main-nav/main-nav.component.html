@@ -7,7 +7,7 @@
     <mat-nav-list>
       <a mat-list-item *ngIf="(auth | async)?.isLoggedIn" >{{(auth | async)?.usrEmail}}</a>
       <a mat-list-item routerLink="coachdash">Coach Dash</a>
-      <a mat-list-item routerLink="register">Sign up</a>
+      <a mat-list-item routerLink="register">Sign up  {{(isHandset$ | async)}}</a>
       <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
       <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
     </mat-nav-list>
@@ -24,11 +24,13 @@
       </button>
       <span routerLink="/home">CoachGo Experience!</span>
       <span class="spacer"></span>
-      <a *ngIf="(auth | async)?.isLoggedIn"> {{(auth | async)?.usrEmail}}</a>
-      <a routerLink="coachdash">Coach Dash</a>
-      <a routerLink="register">Sign up</a>
-      <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
-      <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
+      <div *ngIf="!(isHandset$ | async)">
+          <a *ngIf="(auth | async)?.isLoggedIn"> {{(auth | async)?.usrEmail}}</a>
+          <a routerLink="coachdash">Coach Dash</a>
+          <a routerLink="register">Sign up {{(isHandset$ | async)}}</a>
+          <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
+          <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>

@@ -1,0 +1,34 @@
+#product-overview {
+    background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 10%, transparent),
+      url("https://www.gannett-cdn.com/-mm-/28bfd97acd800255ee687705a03950d54debb71f/c=42-0-3791-2819/local/-/media/2017/02/12/FortCollins/FortCollins/636225053790316494-USATSI-9774729.jpg?") center/cover no-repeat border-box,
+      #700799;
+    width: 100vw;
+    height: 33vh;
+    position: relative;
+  }
+  
+  #product-overview h1 {
+    color: white;
+    font-family: "Anton", sans-serif;
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    font-size: 1.6rem;
+  }
+  
+  @media (min-width: 40rem) and (min-height: 40rem) {
+    #product-overview {
+      height: 40vh;
+      background-position: 50% 25%;
+    }
+  
+    #product-overview h1 {
+      font-size: 3rem;
+    }
+  }
+  
+  .section-title {
+    color: #2ddf5c;
+    text-align: center;
+  }
+  
