@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-athlete',
@@ -10,25 +11,19 @@ import { UserService } from '../services/user.service';
 })
 export class AddAthleteComponent implements OnInit {
   athleteModel: any = {};
-  athletes: Athlete[] = [
-  
-  ];
-  somearray = [];
+  athletes: Athlete[] = [  ];
   public show = false;
-  constructor(private athleteService: AthleteService, private userService: UserService) { }
+  constructor(private athleteService: AthleteService, private router: Router) { }
   toggle() {
     this.show = !this.show;
   }
 
   ngOnInit() {
-    this.getAthletes();
-  }
-
-  getAthletes(): void {
+   }
+     getAthletes(): void {
     this.athleteService.getAthletes()
       .subscribe(athletes => this.athletes = athletes);
-      // .subscribe((answer) => (this.somearray = answer ));
-      console.log('athletai gauti');
+      this.router.navigate(['/athletelist']);
   }
 
 
@@ -36,15 +31,8 @@ export class AddAthleteComponent implements OnInit {
     if (!this.athleteModel) { return; }
     this.athleteService.addAthlete(this.athleteModel as Athlete)
       .subscribe(athlete => {
-        // this.athletes.push(this.athleteModel);
         this.getAthletes();
       });
   }
-
-
-  test() {
-    console.log('pushing the shiet');
-
-}
 
 }
