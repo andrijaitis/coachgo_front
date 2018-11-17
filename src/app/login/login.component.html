@@ -1,34 +1,39 @@
-<div class="container">
-  <div class="login-form">
-  <div class="main-div">
-      <div class="panel">
-     <h2>Coach Login</h2>
-     <p>Please enter your email and password</p>
-     </div>
+
+
+   <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
       <form id="Login" [formGroup]="loginForm" novalidate 
       (submit)="onSubmitLogin(loginForm)">
-  
-          <div class="form-group">
-  
-  
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" formControlName="email"  ngModel [email]="true">
-  
-          </div>
-  
-          <div class="form-group">
-  
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
-  
-          </div>
-          <div class="forgot">
-          <a routerLink="/forgot">Forgot password?</a>
-          <br>
-
-  </div>
-          <button type="submit"  [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
-  
+        <table class="login-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field  class="login-full-width">
+              <input type="email" matInput  [(ngModel)]="email" name="email" required
+              id="inputEmail" placeholder="Email Address" formControlName="email" [email]="true">
+              </mat-form-field>
+              <div class="inputError" *ngIf="loginForm.controls.email.errors?.required && loginForm.controls.email.touched">
+                    Please fill out the email
+                  </div>
+            </td>
+          </tr>
+          <tr>
+          <td><mat-form-field class="login-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required
+             class="form-control" id="inputPassword"  formControlName="password">
+          </mat-form-field></td>
+        </tr>
+        <div class="inputError" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">
+                Please fill out the password
+              </div></table>
+        <mat-card-actions>
+                <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" >Login</button>
+                <button style="margin: 0 20px;"  class="form-button" mat-raised-button color="secondary" routerLink="/register">Register</button>
+              </mat-card-actions>
       </form>
-      <a routerLink="/register">Register</a>
-      </div>
-  </div></div>
-  
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+
+  </mat-card>

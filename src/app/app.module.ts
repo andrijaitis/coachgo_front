@@ -20,11 +20,11 @@ import { postReducer } from './reducers/post.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
+   MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
+   MatMenuModule, MatProgressSpinnerModule} from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-
-
 
 
 @NgModule({
@@ -48,6 +48,15 @@ import { LayoutModule } from '@angular/cdk/layout';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+
     StoreModule.forRoot({
       post: postReducer, auth: authReducer
 

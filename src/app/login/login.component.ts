@@ -45,38 +45,7 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin(loginForm) {
 
-  // if (loginForm.valid) {
-  //   const user: User = loginForm.value;
-  // if (this.userService.login(user) === true)  {
-  //      loginForm.value = false;
-  //      this.router.navigate(['coachdash']);
-  //   } else {
-  //     alert('bitch u suck, wrong password or email!!!');
-  //   }
-  // }
-
-
-
-
-
-    // if (loginForm.valid) {
-    //     const user: User = loginForm.value;
-    //   this.userService.login(user).subscribe((answer) => {
-    //     console.log('zie answer ', answer);
-    //     if (answer === true) {
-    //       this.router.navigate(['coachdash']);
-    //       loginForm.value = false;
-    //     } else {
-    //       console.log('zie answer ', answer);
-    //       alert('bitch u suck, wrong password or email!!!');
-    //     }
-    //   });
-    // }
-
-
-
-
-    if (loginForm.valid) {
+     if (loginForm.valid) {
       const user: User = loginForm.value;
     this.userService.login(user).subscribe((answer) => {
         if (answer.status === true) {
@@ -93,15 +62,6 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-
-        // this.authService.login(answer.status).subscribe(() => {
-         //   if (answer.status === false) {
-        //     alert('bitch u suck, wrong password or email!!!');
-        //   }
-
-        //      });
-  // }
 
 }
 
