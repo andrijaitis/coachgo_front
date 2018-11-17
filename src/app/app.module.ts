@@ -19,6 +19,10 @@ import { StoreModule, MetaReducer } from '@ngrx/store';
 import { postReducer } from './reducers/post.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 
@@ -32,7 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CoachDashComponent,
     AddAthleteComponent,
     SupportComponent,
-    AthleteDetailComponent
+    AthleteDetailComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -40,13 +45,20 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,
     StoreModule.forRoot({
       post: postReducer, auth: authReducer
 
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25 //  Retains last 25 states
-    })
+    }),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [AuthGuard, AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
