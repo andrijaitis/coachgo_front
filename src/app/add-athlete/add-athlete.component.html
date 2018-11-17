@@ -9,7 +9,7 @@
         <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
 
           <div class="form-group">
-            <label for="firstName">firstName</label>
+            <label for="firstName">First name</label>
             <input type="text" class="form-control" name="firstName" [(ngModel)]="athleteModel.firstName" #firstName="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
             <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
@@ -18,7 +18,7 @@
           </div>
 
           <div class="form-group">
-            <label for="lastName">lastName</label>
+            <label for="lastName">Last name</label>
             <input type="text" class="form-control" name="lastName" [(ngModel)]="athleteModel.lastName" #lastName="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
             <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="age">age</label>
+            <label for="age">Age</label>
             <input type="text" class="form-control" name="age" [(ngModel)]="athleteModel.age"
               #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required />
             <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
@@ -35,14 +35,14 @@
           </div>
           <div class="form-group">
             <label for="dateCreated">Date</label>
-            <input type="text" class="form-control" name="dateCreated" [(ngModel)]="athleteModel.dateCreated" #dateCreated="ngModel"
+            <input type="date" class="form-control" name="dateCreated" [(ngModel)]="athleteModel.dateCreated" #dateCreated="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && dateCreated.invalid }" required />
             <div *ngIf="f.submitted && dateCreated.invalid" class="invalid-feedback">
               <div *ngIf="dateCreated.errors.required">Date is required</div>
             </div>
           </div>
           <div class="form-group">
-            <label for="sport">sport</label>
+            <label for="sport">Activity/sport</label>
             <input type="text" class="form-control" name="sport" [(ngModel)]="athleteModel.sport" #sport="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && sport.invalid }" required />
             <div *ngIf="f.submitted && sport.invalid" class="invalid-feedback">
@@ -51,7 +51,7 @@
           </div>
 
           <div class="form-group">
-            <label for="phone">phone</label>
+            <label for="phone">Phone number</label>
             <input type="text" class="form-control" name="phone" [(ngModel)]="athleteModel.phone" #phone="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required />
             <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
@@ -60,7 +60,7 @@
           </div>
 
           <div class="form-group">
-            <label for="email">email</label>
+            <label for="email">Email</label>
             <input type="text" class="form-control" name="email" [(ngModel)]="athleteModel.email" #email="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required />
             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
@@ -74,6 +74,11 @@
             <div *ngIf="f.submitted && active.invalid" class="invalid-feedback">
               <div *ngIf="active.errors.required">active is required</div>
             </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="radio" name="gender" value="male"> Male<br>
+            <input class="form-control" type="radio" name="gender" value="female"> Female<br>
+            <input class="form-control" type="radio" name="gender" value="other"> Other
           </div>
      
           <div class="form-group">
