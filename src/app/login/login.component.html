@@ -11,7 +11,7 @@
           <tr>
             <td>
               <mat-form-field  class="login-full-width">
-              <input type="email" matInput  [(ngModel)]="email" name="email" required
+              <input type="email" matInput  name="email" required
               id="inputEmail" placeholder="Email Address" formControlName="email" [email]="true">
               </mat-form-field>
               <div class="inputError" *ngIf="loginForm.controls.email.errors?.required && loginForm.controls.email.touched">
@@ -21,7 +21,7 @@
           </tr>
           <tr>
           <td><mat-form-field class="login-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required
+            <input matInput placeholder="Password"  type="password" name="password" required
              class="form-control" id="inputPassword"  formControlName="password">
           </mat-form-field></td>
         </tr>
@@ -33,7 +33,7 @@
                 <button style="margin: 0 20px;"  class="form-button" mat-raised-button color="secondary" routerLink="/register">Register</button>
               </mat-card-actions>
       </form>
-      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
     </mat-card-content>
 
   </mat-card>
