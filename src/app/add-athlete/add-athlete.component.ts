@@ -12,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AddAthleteComponent implements OnInit {
   public athleteForm;
-  public registerForm;
+  // public registerForm;
 
 
   athletes: Athlete[] = [  ];
@@ -38,11 +38,11 @@ export class AddAthleteComponent implements OnInit {
   }
 
 
-  onSubmit(registerForm) {
-    if (registerForm.valid) {
-      const athlete: Athlete = registerForm.value;
+  onSubmit(athleteForm) {
+    if (athleteForm.valid) {
+      const athlete: Athlete = athleteForm.value;
       this.athleteService.addAthlete(athlete).subscribe();
-      registerForm.value = false;
+      athleteForm.value = false;
       setTimeout(() => {
         this.router.navigate(['athletelist']);
       }, 2000);
