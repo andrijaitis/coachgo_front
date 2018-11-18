@@ -68,7 +68,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <div style="display: flex; justify-content: center; flex-direction: column;" *ngIf="!athletes.length > 0">
+  <div style="display: flex; justify-content: center; flex-direction: column;" *ngIf="(athletes.length === 0)">
       <h1 align="center">Sorry but you don't have any athletes right now :( </h1>
   <h1 align="center">Try to add first </h1>
   <button  style="margin: 0 50% 0 50%;" mat-raised-button color="primary"  routerLink="/addathlete" >Here</button>
