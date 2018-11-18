@@ -1,4 +1,4 @@
-<button class="btn btn-primary" (click)="toggle()" id="bt">
+<!-- <button class="btn btn-primary" (click)="toggle()" id="bt">
     Add a new athelte
 </button>
 <div>
@@ -89,4 +89,104 @@
     </div>
   </div>
  
-</div>
+</div> -->
+
+
+
+
+
+
+
+<form [formGroup]="athleteForm" novalidate (submit)="onSubmit(athleteForm)">
+
+    <div>
+        <mat-form-field>
+            <input type="email" matInput placeholder="Email" formControlName="email" required ngModel [email]="true">
+            <mat-error *ngIf="athleteForm.controls.email.errors?.required && athleteForm.controls.email.touched">
+                Please fill out the email
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="First Name" formControlName="firstName" ngModel>
+            <mat-error *ngIf="athleteForm.controls.firstName.errors?.required && athleteForm.controls.firstName.touched">
+                Please fill out the First name
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Last name" formControlName="lastName" ngModel>
+            <mat-error *ngIf="athleteForm.controls.lastName.errors?.required && athleteForm.controls.lastName.touched">
+                Please fill out the Last name
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Age" formControlName="age" ngModel>
+            <mat-error *ngIf="athleteForm.controls.age.errors?.required && athleteForm.controls.age.touched">
+                Please fill out the Age
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Height" formControlName="height" ngModel>
+            <mat-error *ngIf="athleteForm.controls.height.errors?.required && athleteForm.controls.height.touched">
+                Please fill out the height
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="email" matInput placeholder="Sport" formControlName="sport" ngModel>
+            <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
+                Please fill out the Sport
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Phone" formControlName="phone" ngModel>
+            <mat-error *ngIf="athleteForm.controls.phone.errors?.required && athleteForm.controls.phone.touched">
+                Please fill out the phone number
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Active" formControlName="active" ngModel>
+            <mat-error *ngIf="athleteForm.controls.active.errors?.required && athleteForm.controls.active.touched">
+                Please select if this athelete is active
+            </mat-error>
+
+        </mat-form-field>
+    </div>
+    
+
+
+
+    <button class="btn-primary" type="submit" [disabled]="athleteForm.invalid">Register</button>
+</form>
+
+
+<p>
+    Form Value: {{ athleteForm.value | json }}
+  </p>
+  
+  
+  <p>
+    Form Status: {{ athleteForm.status }}
+  </p>
+  
+  <button (click)="cleanForm()" >clear</button>
+  

@@ -3,6 +3,7 @@ import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-athlete',
@@ -10,29 +11,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-athlete.component.scss']
 })
 export class AddAthleteComponent implements OnInit {
-  athleteModel: any = {};
+  public athleteForm;
+  public registerForm;
+
+
   athletes: Athlete[] = [  ];
-  public show = false;
-  constructor(private athleteService: AthleteService, private router: Router) { }
-  toggle() {
-    this.show = !this.show;
-  }
 
+  constructor(private athleteService: AthleteService, private router: Router, private fb: FormBuilder) { }
+ 
   ngOnInit() {
-   }
-     getAthletes(): void {
-    this.athleteService.getAthletes()
-      .subscribe(athletes => this.athletes = athletes);
-      this.router.navigate(['/athletelist']);
+
+    this.athleteForm = this.fb.group({
+      email: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      age: ['', Validators.required],
+      height: ['', Validators.required],
+      sport: ['', Validators.required],
+      phone: ['', Validators.required],
+      active: ['', Validators.required],
+    });
+
+  }
+  cleanForm() {
+    this.athleteForm.reset();
   }
 
 
-  onSubmit() {
-    if (!this.athleteModel) { return; }
-    this.athleteService.addAthlete(this.athleteModel as Athlete)
-      .subscribe(athlete => {
-        this.getAthletes();
-      });
+  onSubmit(registerForm) {
+    if (registerForm.valid) {
+      const athlete: Athlete = registerForm.value;
+      this.athleteService.addAthlete(athlete).subscribe();
+      registerForm.value = false;
+      setTimeout(() => {
+        this.router.navigate(['athletelist']);
+      }, 2000);
+    } else {
+    }
   }
+
+
+
+
+
+
+
+
+
 
 }
