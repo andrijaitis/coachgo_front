@@ -27,6 +27,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { UpdateComponent } from './update/update.component';
 
 
 
@@ -42,7 +43,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SupportComponent,
     AthleteDetailComponent,
     MainNavComponent,
-    AtheleteListComponent
+    AtheleteListComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

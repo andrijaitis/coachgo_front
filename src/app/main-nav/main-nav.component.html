@@ -27,7 +27,7 @@
       <div *ngIf="!(isHandset$ | async)">
           <a *ngIf="(auth | async)?.isLoggedIn"> {{(auth | async)?.usrEmail}}</a>
           <a routerLink="coachdash">Coach Dash</a>
-          <a routerLink="register">Sign up </a>
+          <a *ngIf="!(auth | async)?.isLoggedIn" routerLink="register">Sign up </a>
           <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
           <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
       </div>
