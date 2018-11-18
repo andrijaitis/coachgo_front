@@ -48,7 +48,7 @@ const USERS_DATA: OurAthletes[] = [
 })
 export class AtheleteListComponent implements OnInit {
   athletes: Athlete[] = [];
-
+  noAthletes = false;
 
   displayedColumns: string[] = ['email', 'firstName', 'sport', 'active', 'gender', '_id'];
   dataSource = new MatTableDataSource(this.athletes); //athletes from server
@@ -74,10 +74,11 @@ export class AtheleteListComponent implements OnInit {
 
  updateTable(athletesfromsrv) {
    this.dataSource = new MatTableDataSource(athletesfromsrv);
+   this.athletes = athletesfromsrv;
  }
 
- edit(id) {
-   console.log(id);
+ test() {
+   console.log(this.athletes.length);
  }
  delete(id) {
   this.athleteService.deleteAthlete(id)
