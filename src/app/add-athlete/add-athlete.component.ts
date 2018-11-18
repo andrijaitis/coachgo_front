@@ -30,6 +30,7 @@ export class AddAthleteComponent implements OnInit {
       sport: ['', Validators.required],
       phone: ['', Validators.required],
       active: ['', Validators.required],
+      gender: ['', Validators.required],
     });
 
   }

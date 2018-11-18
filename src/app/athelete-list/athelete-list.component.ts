@@ -17,6 +17,7 @@ export interface OurAthletes {
   phone: string;
   active: string;
   __v: number;
+  gender: string;
 }
 
 
@@ -33,7 +34,8 @@ const USERS_DATA: OurAthletes[] = [
     "sport" : "fdfdf",
     "phone" : "zzzzzzzzz",
     "active" : "false",
-    "__v" : 0
+    "__v" : 0,
+    "gender": "other"
 }
 
 ];
@@ -48,7 +50,7 @@ export class AtheleteListComponent implements OnInit {
   athletes: Athlete[] = [];
 
 
-  displayedColumns: string[] = ['email', 'firstName', 'sport', 'active', '_id'];
+  displayedColumns: string[] = ['email', 'firstName', 'sport', 'active', 'gender', '_id'];
   dataSource = new MatTableDataSource(this.athletes); //athletes from server
 
   constructor(private athleteService: AthleteService) { }

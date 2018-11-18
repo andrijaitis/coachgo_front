@@ -22,10 +22,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
    MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-   MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef} from '@angular/material';
+   MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef, MatOptionModule, MatSelectModule} from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -72,6 +73,10 @@ import { AtheleteListComponent } from './athelete-list/athelete-list.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule
+
   ],
   providers: [AuthGuard, AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -94,14 +94,13 @@
 
 
 
-<h1>pabaigti sita rytoi </h1>
 
-
-<form [formGroup]="athleteForm" novalidate (submit)="onSubmit(athleteForm)">
+<!-- <form [formGroup]="athleteForm" novalidate (submit)="onSubmit(athleteForm)">
 
     <div>
         <mat-form-field>
             <input type="email" matInput placeholder="Email" formControlName="email" required ngModel [email]="true">
+            <mat-icon matSuffix>email</mat-icon>
             <mat-error *ngIf="athleteForm.controls.email.errors?.required && athleteForm.controls.email.touched">
                 Please fill out the email
             </mat-error>
@@ -145,36 +144,39 @@
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field>
-            <input type="email" matInput placeholder="Sport" formControlName="sport" ngModel>
-            <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
-                Please fill out the Sport
-            </mat-error>
 
-        </mat-form-field>
+        <mat-select formControlName="sport"  placeholder="Select sport">
+            <mat-option  value="basketball">Basketball</mat-option>
+            <mat-option  value="football">Football</mat-option>
+            <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
+                Please select the Sport
+            </mat-error>
+          </mat-select>
+
+
     </div>
     <div>
         <mat-form-field>
             <input type="number" matInput placeholder="Phone" formControlName="phone" ngModel>
+            <mat-icon matSuffix>phone</mat-icon>
             <mat-error *ngIf="athleteForm.controls.phone.errors?.required && athleteForm.controls.phone.touched">
                 Please fill out the phone number
             </mat-error>
-
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field>
-            <input type="text" matInput placeholder="Active" formControlName="active" ngModel>
-            <mat-error *ngIf="athleteForm.controls.active.errors?.required && athleteForm.controls.active.touched">
-                Please select if this athelete is active
-            </mat-error>
 
-        </mat-form-field>
+        <mat-select formControlName="active"  placeholder="Membership">
+            <mat-option  value="true">Active</mat-option>
+            <mat-option  value="false">Inactive</mat-option>
+            <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
+                Please select if membership is active or not
+            </mat-error>
+          </mat-select>
+
+
     </div>
     
-
-
-
     <button class="btn-primary" type="submit" [disabled]="athleteForm.invalid">Register</button>
 </form>
 
@@ -189,4 +191,137 @@
   </p>
   
   <button (click)="cleanForm()" >clear</button>
+   -->
+
+
+
+
+  <mat-card class="newAthlete-card">
+      <mat-card-header>
+        <mat-card-title>Add new athlete</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="athleteForm" novalidate (submit)="onSubmit(athleteForm)">
+          <table class="newAthlete-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field  class="newAthlete-full-width">
+                <input type="email" matInput  name="email" required
+                id="inputEmail" placeholder="Email Address" formControlName="email" [email]="true">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="athleteForm.controls.email.errors?.required && athleteForm.controls.email.touched">
+                    Please fill out the email
+                </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            
+             <tr>
+                <td>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="First Name" formControlName="firstName" ngModel>
+                        <mat-error *ngIf="athleteForm.controls.firstName.errors?.required && athleteForm.controls.firstName.touched">
+                            Please fill out the First name
+                        </mat-error>
+                      </mat-form-field>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Last name" formControlName="lastName" ngModel>
+                        <mat-error *ngIf="athleteForm.controls.lastName.errors?.required && athleteForm.controls.lastName.touched">
+                            Please fill out the Last name
+                        </mat-error>
+                      </mat-form-field>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Age" formControlName="age" ngModel>
+                        <mat-error *ngIf="athleteForm.controls.age.errors?.required && athleteForm.controls.age.touched">
+                            Please fill out the Age
+                        </mat-error>
+                    </mat-form-field>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Height" formControlName="height" ngModel>
+                        <mat-error *ngIf="athleteForm.controls.height.errors?.required && athleteForm.controls.height.touched">
+                            Please fill out the height
+                        </mat-error>
+                    </mat-form-field>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-select formControlName="sport"  placeholder="Select sport">
+                        <mat-option  value="basketball">Basketball</mat-option>
+                        <mat-option  value="football">Football</mat-option>
+                        <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
+                            Please select the Sport
+                        </mat-error>
+                      </mat-select>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Phone" formControlName="phone" ngModel>
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="athleteForm.controls.phone.errors?.required && athleteForm.controls.phone.touched">
+                            Please fill out the phone number
+                        </mat-error>
+                    </mat-form-field>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>
+                    <mat-select formControlName="active"  placeholder="Membership">
+                        <mat-option  value="true">Active</mat-option>
+                        <mat-option  value="false">Inactive</mat-option>
+                        <mat-error *ngIf="athleteForm.controls.sport.errors?.required && athleteForm.controls.sport.touched">
+                            Please select if membership is active or not
+                        </mat-error>
+                      </mat-select>
+                  </td>
+              </tr>
+
+
+             <tr>
+                <td>                       
+                    <mat-select formControlName="gender" placeholder="Assume gender">
+                        <mat-icon matSuffix>airplanemode_active</mat-icon>
+                        <mat-option  value="male">Male</mat-option>
+                        <mat-option  value="female">Female</mat-option>
+                        <mat-option  value="other">Other</mat-option>
+                        <mat-error *ngIf="athleteForm.controls.gender.errors?.required && athleteForm.controls.gender.touched">
+                            Please assume gender
+                        </mat-error>
+                      </mat-select>
+                  </td>
+              </tr>
+           </table>
+          <mat-card-actions>
+              <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="athleteForm.invalid" >Add new</button>
+                </mat-card-actions>
+        </form>
+
+      </mat-card-content>
   
+    </mat-card>

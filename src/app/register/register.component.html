@@ -42,6 +42,7 @@
               <mat-form-field  class="register-full-width">
               <input type="email" matInput placeholder="Email"  name="email" required
               id="inputEmail" formControlName="email" [email]="true">
+              <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
               <div class="inputError" *ngIf="registerForm.controls.email.errors?.required && registerForm.controls.email.touched">
                   Please fill out the email
