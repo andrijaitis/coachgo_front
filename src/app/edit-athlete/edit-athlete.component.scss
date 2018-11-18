@@ -1,0 +1,32 @@
+.newAthlete-card {
+    max-width: 372px;
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 2px;
+    margin: 5% auto 30px;
+    padding: 50px 70px 70px 71px;
+  
+  
+  }
+  
+  .newAthlete-header-image {
+    background-size: cover;
+  }
+  
+  .form-button {
+    width:80px; 
+    margin-right: 50%
+  }
+  
+  mat-card-header {
+    justify-content: center;
+  }
+  
+  mat-card-actions {
+    margin: 0 0;
+    text-align: center;
+  }
+  
+  mat-select {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }

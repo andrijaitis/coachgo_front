@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AthleteService } from '../services/athlete.service';
 import { Location } from '@angular/common';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-athlete',
@@ -13,28 +14,31 @@ export class EditAthleteComponent implements OnInit {
 
   // some temp date so wont complait at the moment
   athlete: Athlete =   {
-    'email' : 'no data',
-    '_id' : this.route.snapshot.paramMap.get('id'),
-    'creator' : 'no data',
-    'firstName' : 'no data',
-    'lastName' : 'no data',
-    'age' : 'no data',
-    'height' : 'no data',
-    'dateCreated' : 'no data',
-    'sport' : 'no data',
-    'phone' : 'no data',
-    'active' : 'no data',
-    '__v' : 0,
-    'gender': 'no data'
 };
+  public athleteForm: any;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private athleteService: AthleteService,
+    private fb: FormBuilder,
+    private router: Router,
   ) { }
 
 
   ngOnInit(): void {
+    this.athleteForm = this.fb.group({
+      email: [this.athlete.email, Validators.required],
+      firstName: [this.athlete.firstName, Validators.required],
+      lastName: [this.athlete.lastName, Validators.required],
+      age: [this.athlete.age, Validators.required],
+      height: [this.athlete.height, Validators.required],
+      sport: [this.athlete.sport, Validators.required],
+      phone: [this.athlete.phone, Validators.required],
+      active: [this.athlete.active, Validators.required],
+      gender: [this.athlete.gender, Validators.required],
+      _id: [this.route.snapshot.paramMap.get('id'), Validators.required],
+    });
+
     this.getAthelete();
   }
 
@@ -51,6 +55,18 @@ export class EditAthleteComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  onSubmit(athleteForm) {
+    if (athleteForm.valid) {
+      const athleteFrm: Athlete = athleteForm.value;
+      this.athleteService.updateAthlete(athleteFrm).subscribe();
+      athleteForm.value = false;
+      setTimeout(() => {
+        this.router.navigate(['athletelist']);
+      }, 2000);
+    } else {
+    }
   }
 }
 

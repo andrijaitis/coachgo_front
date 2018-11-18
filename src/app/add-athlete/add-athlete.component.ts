@@ -12,8 +12,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AddAthleteComponent implements OnInit {
   public athleteForm;
-  // public registerForm;
-
 
   athletes: Athlete[] = [  ];
 
