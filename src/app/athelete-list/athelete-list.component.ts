@@ -80,6 +80,7 @@ export class AtheleteListComponent implements OnInit {
    console.log(id);
  }
  delete(id) {
-   console.log(id);
+  this.athleteService.deleteAthlete(id)
+  .subscribe(athletesfromsrv =>  this.getAthletes());
  }
 }
