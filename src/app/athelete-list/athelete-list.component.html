@@ -58,7 +58,7 @@
     <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef> EDIT/DELETE </th>
         <td mat-cell *matCellDef="let element">
-          <Button class="btn btn-primary" (click)=edit(element._id) >Edit</Button>
+          <Button class="btn btn-primary"routerLink="/editAthlete/{{element._id}}" >Edit</Button>
           <Button class="btn btn-danger" (click)=delete(element._id)>Delete</Button>
         </td>
           

@@ -32,5 +32,16 @@ export class AthleteService implements OnInit {
     return this.http.delete(url);
   }
 
+  getAthlete(id: any) {
+    const url = environment.apiUrl + '/athlete' + '/' + `${id}`;
+    return this.http.get(url);
+}
+updateAthlete(athlete: Athlete) {
+  const url = environment.apiUrl + '/athlete' + '/' + `${athlete._id}`;
+  return this.http.put(`${url}`, athlete);
+}
+
+
+
   constructor(private http: HttpClient , private userService: UserService) { }
 }
