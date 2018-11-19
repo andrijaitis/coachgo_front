@@ -1,0 +1,123 @@
+
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Athlete data
+      </mat-panel-title>
+      <mat-panel-description>
+        Select athlete and training program
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <h5>Select user</h5>
+    <mat-select  [(ngModel)]="athleteId"  placeholder="Select athlete">
+      <mat-option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</mat-option>
+    </mat-select>
+    <h5>Select training</h5>
+    <mat-select [(ngModel)]="training" placeholder="Select sport">
+      <mat-option  value="basketball">Basketball</mat-option>
+      <mat-option  value="football">Football</mat-option>
+      <mat-option  value="fitness">Fitness</mat-option>
+     </mat-select>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Training results
+      </mat-panel-title>
+      <mat-panel-description>
+        Type all results of the training
+        <mat-icon>class</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+     <!-- //basketball training program -->
+    <div  [formGroup]="basketballForm" *ngIf="training === 'basketball'">
+      <mat-form-field >
+        <input type="number" formControlName="mpg" matInput placeholder="Minutes per game" >
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="fg" matInput placeholder="Field goals">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="threep" matInput placeholder="Three points">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="ft" matInput placeholder="Free throws ">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="ppg" matInput  placeholder="Points per game">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="rpg" matInput placeholder="Rebounds per game">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="apg" matInput placeholder="Assists per game">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" formControlName="bpg" matInput placeholder="Blocks per game">
+      </mat-form-field>
+          <input [(ngModel)]="athleteId" hidden="true" formControlName="id" >
+          <input [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
+    </div>
+
+    <!-- //football training program -->
+    <div *ngIf="training === 'football'">
+      <mat-form-field>
+        <input matInput placeholder="Minutes per football game">
+      </mat-form-field>
+    </div>
+
+        <!-- //fitness training program -->
+        <div *ngIf="training === 'fitness'">
+          <mat-form-field>
+            <input matInput placeholder="Minutes per football game">
+          </mat-form-field>
+        </div>
+    
+
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Day of the training
+      </mat-panel-title>
+      <mat-panel-description>
+        Inform the date that training was acomplished
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input [(ngModel)]="trainingdate" matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+    </mat-form-field>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+<p>
+  Form Value: {{ basketballForm.value | json }}
+</p>
+<p>
+  Form Value: {{ basketballForm.valid | json }}
+</p>
+<button mat-raised-button color="primary" [disabled]="basketballForm.valid" (click)="test()">Assign results</button>

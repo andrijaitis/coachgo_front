@@ -22,13 +22,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
    MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-   MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef, MatOptionModule, MatSelectModule} from '@angular/material';
+   MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef, MatOptionModule,
+    MatSelectModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { UpdateComponent } from './update/update.component';
 import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
+import { AssignTrainingComponent } from './assign-training/assign-training.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -46,7 +49,8 @@ import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
     MainNavComponent,
     AtheleteListComponent,
     UpdateComponent,
-    EditAthleteComponent
+    EditAthleteComponent,
+    AssignTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -64,14 +68,8 @@ import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
     MatMenuModule,
     MatIconModule,
     MatProgressSpinnerModule,
-
-    StoreModule.forRoot({
-      post: postReducer, auth: authReducer
-
-    }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25 //  Retains last 25 states
-    }),
+    MatExpansionModule,
+    MatDatepickerModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -79,7 +77,15 @@ import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
     MatListModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatNativeDateModule,
+      StoreModule.forRoot({
+      post: postReducer, auth: authReducer
+
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
 
   ],
   providers: [AuthGuard, AuthService,

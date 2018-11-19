@@ -243,7 +243,7 @@
              <tr>
                 <td>
                     <mat-form-field>
-                        <input type="number" matInput placeholder="Age" formControlName="age" ngModel>
+                        <input type="number" matInput min="1" max="99" placeholder="Age" formControlName="age" ngModel>
                         <mat-error *ngIf="athleteForm.controls.age.errors?.required && athleteForm.controls.age.touched">
                             Please fill out the Age
                         </mat-error>
