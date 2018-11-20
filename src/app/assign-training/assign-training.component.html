@@ -16,7 +16,7 @@
       <mat-option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</mat-option>
     </mat-select>
     <h5>Select training</h5>
-    <mat-select [(ngModel)]="training" placeholder="Select sport">
+    <mat-select required [(ngModel)]="training" placeholder="Select sport">
       <mat-option  value="basketball">Basketball</mat-option>
       <mat-option  value="football">Football</mat-option>
       <mat-option  value="fitness">Fitness</mat-option>
@@ -39,33 +39,33 @@
     </mat-expansion-panel-header>
 
      <!-- //basketball training program -->
-    <div  [formGroup]="basketballForm" *ngIf="training === 'basketball'">
+    <div  [formGroup]="basketballForm" novalidate *ngIf="training === 'basketball'">
       <mat-form-field >
-        <input type="number" formControlName="mpg" matInput placeholder="Minutes per game" >
+        <input type="number" required formControlName="mpg" matInput placeholder="Minutes per game" >
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="fg" matInput placeholder="Field goals">
+        <input type="number" required formControlName="fg" matInput placeholder="Field goals">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="threep" matInput placeholder="Three points">
+        <input type="number" required formControlName="threep" matInput placeholder="Three points">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="ft" matInput placeholder="Free throws ">
+        <input type="number" required formControlName="ft" matInput placeholder="Free throws ">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="ppg" matInput  placeholder="Points per game">
+        <input type="number" required formControlName="ppg" matInput  placeholder="Points per game">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="rpg" matInput placeholder="Rebounds per game">
+        <input type="number" required required formControlName="rpg" matInput placeholder="Rebounds per game">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="apg" matInput placeholder="Assists per game">
+        <input type="number" required formControlName="apg" matInput placeholder="Assists per game">
       </mat-form-field>
       <mat-form-field>
-        <input type="number" formControlName="bpg" matInput placeholder="Blocks per game">
+        <input type="number" required formControlName="bpg" matInput placeholder="Blocks per game">
       </mat-form-field>
-          <input [(ngModel)]="athleteId" hidden="true" formControlName="id" >
-          <input [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
+          <input required [(ngModel)]="athleteId" hidden="true" formControlName="id" >
+          <input required [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
     </div>
 
     <!-- //football training program -->
@@ -81,8 +81,7 @@
             <input matInput placeholder="Minutes per football game">
           </mat-form-field>
         </div>
-    
-
+  
 
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -102,22 +101,22 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input [(ngModel)]="trainingdate" matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      <input required [(ngModel)]="trainingdate" matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
     </mat-form-field>
     <mat-datepicker #picker></mat-datepicker>
 
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
       <button mat-button color="primary" (click)="nextStep()">End</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="basketballForm.invalid" (click)="onSubmit(basketballForm)">Assign results</button>
     </mat-action-row>
   </mat-expansion-panel>
 
 </mat-accordion>
 
-<p>
+<!-- <p>
   Form Value: {{ basketballForm.value | json }}
 </p>
 <p>
   Form Value: {{ basketballForm.valid | json }}
-</p>
-<button mat-raised-button color="primary" [disabled]="basketballForm.valid" (click)="test()">Assign results</button>
+</p> -->

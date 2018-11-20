@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
+import { TrainingService } from '../services/training.service';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -15,7 +16,7 @@ athletes: Athlete[] = [];
   step = 0;
   athleteId;
   trainingdate;
-
+ 
  public basketballForm: any;
   myGroup: FormGroup;
 
@@ -31,45 +32,66 @@ athletes: Athlete[] = [];
     this.step--;
   }
 
-  constructor(private athleteService: AthleteService, private fb: FormBuilder) { }
+  constructor(private athleteService: AthleteService, private trainingService: TrainingService,
+     private fb: FormBuilder) { }
 
   ngOnInit() {
-
-    // this.basketballForm = this.fb.group({
-    //   id: [this.athleteId, Validators.required],
-    //   mpg: ['', Validators.required],
-    //   fg: ['', Validators.required],
-    //   threep: ['', Validators.required],
-    //   ft: ['', Validators.required],
-    //   ppg: ['', Validators.required],
-    //   rpg: ['', Validators.required],
-    //   apg: ['', Validators.required],
-    //   bpg: ['', Validators.required],
-    //   trainingdate: ['', Validators.required],
-    // });
-    this.basketballForm = new FormGroup({
-      id: new FormControl(this.athleteId),
-      mpg: new FormControl(),
-      fg: new FormControl(),
-      threep: new FormControl(),
-      ft: new FormControl(),
-      ppg: new FormControl(),
-      rpg: new FormControl(),
-      apg: new FormControl(),
-      bpg: new FormControl(),
-      trainingdate: new FormControl(this.trainingdate),
+    
+    this.basketballForm = this.fb.group({
+      id: [this.athleteId, Validators.required],
+      mpg: ['', Validators.required],
+      fg: ['', Validators.required],
+      threep: ['', Validators.required],
+      ft: ['', Validators.required],
+      ppg: ['', Validators.required],
+      rpg: ['', Validators.required],
+      apg: ['', Validators.required],
+      bpg: ['', Validators.required],
+      trainingdate: ['', Validators.required],
     });
 
-  
-    this.getAthletes();
+  this.getAthletes();
+
+
   }
+
+createForm() {
+  this.basketballForm = new FormGroup({
+    id: new FormControl(this.athleteId),
+    mpg: new FormControl(),
+    fg: new FormControl(),
+    threep: new FormControl(),
+    ft: new FormControl(),
+    ppg: new FormControl(),
+    rpg: new FormControl(),
+    apg: new FormControl(),
+    bpg: new FormControl(),
+    trainingdate: new FormControl(this.trainingdate),
+  });
+}
 
   getAthletes(): void {
     this.athleteService.getAthletes()
       .subscribe(athletes => this.athletes.push(...athletes));
   }
 
-  test() {
-console.log(this.athleteId);
+
+  onSubmit(basketballForm) {
+    if (basketballForm.valid) {
+      const basketball = basketballForm.value;
+      this.trainingService.addTraining(basketball).subscribe();
+      basketballForm.value = false;
+      setTimeout(() => {
+        // this.router.navigate(['athletelist']);
+        console.log('added succesfully basketball');
+      }, 2000);
+    } else {
+    }
+  }
+
+
+  test(form) {
+    console.log(form.value);
+    this.trainingService.addTraining(form.value);
   }
 }
