@@ -76,14 +76,15 @@ createForm() {
   }
 
 
-  onSubmit(basketballForm) {
-    if (basketballForm.valid) {
-      const basketball = basketballForm.value;
+  onSubmit(basketballFrm) {
+    if (basketballFrm.valid) {
+      const basketball = basketballFrm.value;
       this.trainingService.addTraining(basketball).subscribe();
-      basketballForm.value = false;
+      // basketball.value = false;
       setTimeout(() => {
         // this.router.navigate(['athletelist']);
-        console.log('added succesfully basketball');
+        // this.basketballForm.value = false; // put this back after testing
+        this.basketballForm.reset();  // put this back after testing
       }, 2000);
     } else {
     }
