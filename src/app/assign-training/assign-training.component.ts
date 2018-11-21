@@ -12,13 +12,15 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 export class AssignTrainingComponent implements OnInit {
 
 athletes: Athlete[] = [];
-  training = 'basketball';
+  training = 'trainingFORM';
   step = 0;
   athleteId;
   trainingdate;
  
  public basketballForm: any;
   myGroup: FormGroup;
+  footballForm: FormGroup;
+  fitnessForm: FormGroup;
 
   setStep(index: number) {
     this.step = index;
@@ -49,26 +51,32 @@ athletes: Athlete[] = [];
       bpg: ['', Validators.required],
       trainingdate: ['', Validators.required],
     });
+    this.footballForm = this.fb.group({
+      id: [this.athleteId, Validators.required],
+      mins: ['', Validators.required],
+      goals: ['', Validators.required],
+      assists: ['', Validators.required],
+      yel: ['', Validators.required],
+      red: ['', Validators.required],
+      spg: ['', Validators.required],
+      aerialswon: ['', Validators.required],
+      motm: ['', Validators.required],
+      trainingdate: ['', Validators.required],
+    });
+    this.fitnessForm = this.fb.group({
+      id: [this.athleteId, Validators.required],
+      squats: ['', Validators.required],
+      pull: ['', Validators.required],
+      push: ['', Validators.required],
+      kmr: ['', Validators.required],
+      trainingdate: ['', Validators.required],
+    });
 
   this.getAthletes();
 
 
   }
 
-createForm() {
-  this.basketballForm = new FormGroup({
-    id: new FormControl(this.athleteId),
-    mpg: new FormControl(),
-    fg: new FormControl(),
-    threep: new FormControl(),
-    ft: new FormControl(),
-    ppg: new FormControl(),
-    rpg: new FormControl(),
-    apg: new FormControl(),
-    bpg: new FormControl(),
-    trainingdate: new FormControl(this.trainingdate),
-  });
-}
 
   getAthletes(): void {
     this.athleteService.getAthletes()
@@ -76,15 +84,17 @@ createForm() {
   }
 
 
-  onSubmit(basketballFrm) {
-    if (basketballFrm.valid) {
-      const basketball = basketballFrm.value;
-      this.trainingService.addTraining(basketball).subscribe();
-      // basketball.value = false;
+  onSubmit(trainingFrm) {
+    if (trainingFrm.valid) {
+      const trainingFORM = trainingFrm.value;
+      trainingFORM.training = this.training;
+      this.trainingService.addTraining(trainingFORM).subscribe();
       setTimeout(() => {
         // this.router.navigate(['athletelist']);
-        // this.basketballForm.value = false; // put this back after testing
+        // this.trainingFORMForm.value = false; // put this back after testing
         this.basketballForm.reset();  // put this back after testing
+        this.fitnessForm.reset();  // put this back after testing
+        this.footballForm.reset();  // put this back after testing
       }, 2000);
     } else {
     }

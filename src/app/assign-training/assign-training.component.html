@@ -69,17 +69,51 @@
     </div>
 
     <!-- //football training program -->
-    <div *ngIf="training === 'football'">
-      <mat-form-field>
-        <input matInput placeholder="Minutes per football game">
+    <div  [formGroup]="footballForm" *ngIf="training === 'football'">
+      <mat-form-field >
+        <input type="number" required formControlName="mins" matInput placeholder="Minutes per training" >
       </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="goals" matInput placeholder="Total goals">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="assists" matInput placeholder="Total assists">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="yel" matInput placeholder="Yellow card">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="red" matInput  placeholder="Red">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required required formControlName="spg" matInput placeholder="Shots per training">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="aerialswon" matInput placeholder="AerialsWon">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" required formControlName="motm" matInput placeholder="Man of the match">
+      </mat-form-field>
+          <input required [(ngModel)]="athleteId" hidden="true" formControlName="id" >
+          <input required [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
     </div>
 
         <!-- //fitness training program -->
-        <div *ngIf="training === 'fitness'">
-          <mat-form-field>
-            <input matInput placeholder="Minutes per football game">
+        <div  [formGroup]="fitnessForm" *ngIf="training === 'fitness'">
+          <mat-form-field >
+            <input type="number" required formControlName="squats" matInput placeholder="Squats" >
           </mat-form-field>
+          <mat-form-field>
+            <input type="number" required formControlName="pull" matInput placeholder="Pull-up">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="number" required formControlName="push" matInput placeholder="Push-up">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="number" required formControlName="kmr" matInput placeholder="Kilimeters run">
+          </mat-form-field>
+              <input required [(ngModel)]="athleteId" hidden="true" formControlName="id" >
+              <input required [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
         </div>
   
 
@@ -108,7 +142,9 @@
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
       <button mat-button color="primary" (click)="nextStep()">End</button>
-      <button mat-raised-button color="primary" type="submit" [disabled]="basketballForm.invalid" (click)="onSubmit(basketballForm)">Assign results</button>
+      <button  *ngIf="training === 'basketball'" mat-raised-button color="primary" type="submit" [disabled]="basketballForm.invalid" (click)="onSubmit(basketballForm)">Assign basketball results</button>
+      <button  *ngIf="training === 'football'" mat-raised-button color="primary" type="submit" [disabled]="footballForm.invalid" (click)="onSubmit(footballForm)">Assign football results</button>
+      <button  *ngIf="training === 'fitness'" mat-raised-button color="primary" type="submit" [disabled]="fitnessForm.invalid" (click)="onSubmit(fitnessForm)">Assign fitness results</button>
     </mat-action-row>
   </mat-expansion-panel>
 

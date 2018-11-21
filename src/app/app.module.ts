@@ -32,6 +32,8 @@ import { UpdateComponent } from './update/update.component';
 import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
 import { AssignTrainingComponent } from './assign-training/assign-training.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { PlotlyModule } from 'angular-plotly.js';
 
 
 
@@ -50,7 +52,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AtheleteListComponent,
     UpdateComponent,
     EditAthleteComponent,
-    AssignTrainingComponent
+    AssignTrainingComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatOptionModule,
     MatSelectModule,
     MatNativeDateModule,
+    PlotlyModule,
       StoreModule.forRoot({
       post: postReducer, auth: authReducer
 
