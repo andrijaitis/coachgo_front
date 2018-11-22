@@ -1,11 +1,14 @@
-<h5>Select athlete {{athelteID}}</h5>
+<h5>Select athlete </h5>
 <select (change)="onChange($event.target.value)" [(ngModel)]="athleteId" placeholder="Select athlete">
   <option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</option>
+</select>
+<h5>Select date</h5>
+<select (change)="onChange2($event.target.value)" [(ngModel)]="specificTraining" placeholder="Select athlete">
+  <option *ngFor="let training of trainingai"  [value]="training._id" >{{training.trainingdate | date}}</option>
 </select>
 <!-- <mat-select (change)="onChange($event.target.value)" placeholder="Select athlete">
   <mat-option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</mat-option>
 </mat-select> -->
-<form class="example-form">
 
   <!-- <h5>Select training</h5>
   <mat-select required  placeholder="Select sport">
@@ -18,12 +21,12 @@
     <mat-option *ngFor="let training of trainings"  value="basketball">{{training.mpg}}</mat-option>
    </mat-select> -->
 
-   <select  placeholder="Select data">
-    <option *ngFor="let datatype of datatypes">{{datatype}}</option>
+   <select [(ngModel)]="dataTodisplay"  placeholder="Select data">
+    <option  [value]="key" *ngFor="let key of objectKeys(datatypes)">{{datatypes[key]}}</option>
   </select>
 
   <button class="form-button" (click)="updategraph()" mat-raised-button color="primary">Update graph</button>
-</form>
+
 
 <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
 

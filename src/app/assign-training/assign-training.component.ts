@@ -95,6 +95,7 @@ athletes: Athlete[] = [];
         this.basketballForm.reset();  // put this back after testing
         this.fitnessForm.reset();  // put this back after testing
         this.footballForm.reset();  // put this back after testing
+        alert('Done');
       }, 2000);
     } else {
     }
