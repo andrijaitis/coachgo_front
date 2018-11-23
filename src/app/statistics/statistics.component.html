@@ -8,18 +8,10 @@
   <option  [value]="'football'">Football</option>
   <option  [value]="'fitness'">Fitness</option>
 </select>
-
-
   <h5>Select type of data</h5>
-
    <select (change)="onChange3($event.target.value)"  [(ngModel)]="dataTodisplay"  placeholder="Select data">
     <option  [value]="key" *ngFor="let key of objectKeys(datatypes)">{{datatypes[key]}}</option>
   </select>
-
-  <button class="form-button" (click)="updategraph()" mat-raised-button color="primary">Update graph</button>
-
-
-
-<button (click)="test()">test</button>
-
-<plotly-plot [data]="graph.data " [layout]="graph.layout"></plotly-plot>
+ <!-- <button class="form-button" (click)="updategraph()" mat-raised-button color="primary">Update graph</button>
+<button (click)="test()">test</button> -->
+<plotly-plot *ngIf="showGraph" [data]="graph.data" [layout]="graph.layout"></plotly-plot>

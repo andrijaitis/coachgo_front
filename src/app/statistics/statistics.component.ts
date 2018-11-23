@@ -15,13 +15,14 @@ export class StatisticsComponent implements OnInit {
   objectKeys = Object.keys;
   athletes: Athlete[] = [];
   athleteId;
-  trainingai ;
+  trainingai;
   specificTraining;
   trainingtype;
-  dataTodisplay = 'mpg';
+  dataTodisplay;
   trainingsToShow;
-  
-  defaultTrainingai = [{ '_id': '123', 'trainingdate': '1970-01-01T01:00:00.000Z', training: 'basketball' }];
+  showGraph = false;
+
+  // defaultTrainingai = [{ '_id': '123', 'trainingdate': '1970-01-01T01:00:00.000Z', training: 'basketball' }];
   something = 'vidas';
   BasketballTypes = {
     'mpg': 'Minutes per game',
@@ -51,7 +52,7 @@ export class StatisticsComponent implements OnInit {
     'Push': 'Push-up',
 
   };
-  default = { default : 'nothing to display'};
+  default = { default: 'nothing to display' };
 
   datatypes: any = { 'Please select the date': 'Please select the date' };
   x = ["2013-10-04 22:23:00", "2013-11-04 22:23:00", "2013-12-04 22:23:00"];
@@ -64,7 +65,7 @@ export class StatisticsComponent implements OnInit {
       type: 'scatter'
     }],
   };
- 
+
   getAthletes(): void {
     this.athleteService.getAthletes()
       .subscribe(athletes => this.athletes.push(...athletes));
@@ -77,23 +78,18 @@ export class StatisticsComponent implements OnInit {
 
   }
 
-
-  test() {
-    // console.log(this.trainingai.find(smth => smth._id === this.specificTraining));
-    console.log(this.graph.data);
-  }
-  updategraph() {
-    console.log('updating shiet');
-    // this.x = ["2014-10-04 22:23:00", "2018-11-04 22:23:00", "2017-12-04 22:23:00"];
-    // this.y = [50, 55, 888];
-    this.graph = {
-      data: [{
-        x: ["2014-10-04 22:23:00", "2018-11-04 22:23:00", "2017-12-04 22:23:00"],
-        y: [50, 55, 888],
-        type: 'scatter'
-      }],
-    };
-  }
+  // test() {
+  //   console.log(this.graph.data);
+  // }
+  // updategraph() {
+  //   this.graph = {
+  //     data: [{
+  //       x: ["2014-10-04 22:23:00", "2018-11-04 22:23:00", "2017-12-04 22:23:00"],
+  //       y: [50, 55, 888],
+  //       type: 'scatter'
+  //     }],
+  //   };
+  // }
 
   setDatatypes(training) {
     console.log('setting up the shiet', training);
@@ -112,25 +108,25 @@ export class StatisticsComponent implements OnInit {
 
   onChange(deviceValue) {
     this.trainingai = this.athletes.find(smth => smth._id === this.athleteId).trainings;
-// also reset othet two bastards
+    // also reset othet two bastards
+    this.trainingtype = null;
     this.datatypes = this.default;
   }
   onChange2(deviceValue) {
     // this.trainingtype = this.trainingai.find(smth => smth.training === this.specificTraining).training;
     this.setDatatypes(this.trainingtype);
-    
+
   }
   onChange3(deviceValue) {
     // this.trainingsToShow = this.trainingai.filter(smth => smth.training === this.trainingtype);
-    console.log(_.map(this.trainingsToShow, 'mpg'));
     this.graph = {
       data: [{
         x: this.trainingsToShow.map(a => a.trainingdate),
-        y: _.map(this.trainingsToShow, 'mpg'),
+        y: _.map(this.trainingsToShow, this.dataTodisplay),
         type: 'scatter'
       }],
     };
-  
+    this.showGraph = true;
   }
 
 }
