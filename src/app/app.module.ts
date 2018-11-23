@@ -34,6 +34,8 @@ import { AssignTrainingComponent } from './assign-training/assign-training.compo
 import {MatExpansionModule} from '@angular/material/expansion';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PlotlyModule } from 'angular-plotly.js';
+import { SimpleGraphComponent } from './simple-graph/simple-graph.component';
+import { StatisticsListComponent } from './statistics-list/statistics-list.component';
 
 
 
@@ -53,7 +55,9 @@ import { PlotlyModule } from 'angular-plotly.js';
     UpdateComponent,
     EditAthleteComponent,
     AssignTrainingComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SimpleGraphComponent,
+    StatisticsListComponent
   ],
   imports: [
     BrowserModule,

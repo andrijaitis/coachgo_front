@@ -2,32 +2,24 @@
 <select (change)="onChange($event.target.value)" [(ngModel)]="athleteId" placeholder="Select athlete">
   <option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</option>
 </select>
-<h5>Select date</h5>
-<select (change)="onChange2($event.target.value)" [(ngModel)]="specificTraining" placeholder="Select athlete">
-  <option *ngFor="let training of trainingai"  [value]="training._id" >{{training.trainingdate | date}}</option>
+<h5>Select type of training </h5>
+<select (change)="onChange2($event.target.value)"  [(ngModel)]="trainingtype" placeholder="Select type">
+  <option  [value]="'basketball'">Basketball</option>
+  <option  [value]="'football'">Football</option>
+  <option  [value]="'fitness'">Fitness</option>
 </select>
-<!-- <mat-select (change)="onChange($event.target.value)" placeholder="Select athlete">
-  <mat-option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</mat-option>
-</mat-select> -->
 
-  <!-- <h5>Select training</h5>
-  <mat-select required  placeholder="Select sport">
-    <mat-option  value="basketball">Basketball</mat-option>
-    <mat-option  value="football">Football</mat-option>
-    <mat-option  value="fitness">Fitness</mat-option>
-   </mat-select> -->
+
   <h5>Select type of data</h5>
-  <!-- <mat-select required  placeholder="Data to be displayed">
-    <mat-option *ngFor="let training of trainings"  value="basketball">{{training.mpg}}</mat-option>
-   </mat-select> -->
 
-   <select [(ngModel)]="dataTodisplay"  placeholder="Select data">
+   <select (change)="onChange3($event.target.value)"  [(ngModel)]="dataTodisplay"  placeholder="Select data">
     <option  [value]="key" *ngFor="let key of objectKeys(datatypes)">{{datatypes[key]}}</option>
   </select>
 
   <button class="form-button" (click)="updategraph()" mat-raised-button color="primary">Update graph</button>
 
 
-<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
 
 <button (click)="test()">test</button>
+
+<plotly-plot [data]="graph.data " [layout]="graph.layout"></plotly-plot>
