@@ -1,54 +1,11 @@
-<!-- 
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
-        <a class="navbar-brand" routerLink="home">CouchGO</a>
-        <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="coachdash">Coach Dash</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="register">Sign up</a>
-                </li>
-                <li *ngIf="(auth | async)?.isLoggedIn" class="nav-item">
-                    <a class="nav-link" >{{(auth | async)?.usrEmail}}</a>
- 
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button *ngIf="(auth | async)?.isLoggedIn"  class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" routerLink="/home" >Logout</button>
-                <button *ngIf="!(auth | async)?.isLoggedIn"  class="btn btn-outline-danger my-2 my-sm-0" routerLink="/login" >Login</button>
-              </form>
-
-        </div>
-    </nav>
-
-
-</body> -->
-
 
 <app-main-nav>
      <router-outlet></router-outlet>
 </app-main-nav>
 
+   <app-modal-basic></app-modal-basic>
 
-
-
-
-
-
-
-
-
-
-
-
-
+      
 
 
 

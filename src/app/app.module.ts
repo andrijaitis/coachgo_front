@@ -36,6 +36,10 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { PlotlyModule } from 'angular-plotly.js';
 import { SimpleGraphComponent } from './simple-graph/simple-graph.component';
 import { StatisticsListComponent } from './statistics-list/statistics-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
+import { ModalBasicComponent } from './modal-basic';
+
 
 
 
@@ -57,9 +61,15 @@ import { StatisticsListComponent } from './statistics-list/statistics-list.compo
     AssignTrainingComponent,
     StatisticsComponent,
     SimpleGraphComponent,
-    StatisticsListComponent
+    StatisticsListComponent,
+    AllStatisticsComponent,
+    ModalBasicComponent
+
+     
+
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -88,6 +98,7 @@ import { StatisticsListComponent } from './statistics-list/statistics-list.compo
     MatNativeDateModule,
     MatTabsModule,
     PlotlyModule,
+    NgbModule,
       StoreModule.forRoot({
       post: postReducer, auth: authReducer
 

@@ -1,0 +1,20 @@
+import {Component} from '@angular/core';
+
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'app-modal-basic',
+  templateUrl: './modal-basic.html'
+})
+export class ModalBasicComponent {
+    actualText = 'sorry';
+  closeResult: string;
+
+  constructor(private modalService: NgbModal) {}
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  }
+
+
+}

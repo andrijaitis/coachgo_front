@@ -13,6 +13,7 @@ import { AtheleteListComponent } from './athelete-list/athelete-list.component';
 import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
 import { AssignTrainingComponent } from './assign-training/assign-training.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'editAthlete/:id', component: EditAthleteComponent, canActivate: [AuthGuard]  },
   { path: 'assigntraining', component: AssignTrainingComponent, canActivate: [AuthGuard]  },
   { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard]  },
+  { path: 'allstats', component: AllStatisticsComponent, canActivate: [AuthGuard]  },
   { path: 'support', component: SupportComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
