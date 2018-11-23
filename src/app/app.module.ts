@@ -23,7 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
    MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
    MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef, MatOptionModule,
-    MatSelectModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+    MatSelectModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatTabsModule} from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
@@ -86,6 +86,7 @@ import { StatisticsListComponent } from './statistics-list/statistics-list.compo
     MatOptionModule,
     MatSelectModule,
     MatNativeDateModule,
+    MatTabsModule,
     PlotlyModule,
       StoreModule.forRoot({
       post: postReducer, auth: authReducer

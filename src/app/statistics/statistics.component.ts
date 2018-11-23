@@ -17,10 +17,12 @@ export class StatisticsComponent implements OnInit {
   athleteId;
   trainingai;
   specificTraining;
-  trainingtype;
+  trainingtype = 'select training type';
   dataTodisplay;
   trainingsToShow;
   showGraph = false;
+
+  athleteSelected = this.athleteId === undefined;
 
   // defaultTrainingai = [{ '_id': '123', 'trainingdate': '1970-01-01T01:00:00.000Z', training: 'basketball' }];
   something = 'vidas';
@@ -52,9 +54,9 @@ export class StatisticsComponent implements OnInit {
     'Push': 'Push-up',
 
   };
-  default = { default: 'nothing to display' };
+  default = { default: 'select result type' };
 
-  datatypes: any = { 'Please select the date': 'Please select the date' };
+  datatypes: any = this.default;
   x = ["2013-10-04 22:23:00", "2013-11-04 22:23:00", "2013-12-04 22:23:00"];
   y = [1, 3, 6];
 
@@ -109,8 +111,9 @@ export class StatisticsComponent implements OnInit {
   onChange(deviceValue) {
     this.trainingai = this.athletes.find(smth => smth._id === this.athleteId).trainings;
     // also reset othet two bastards
-    this.trainingtype = null;
+    this.trainingtype = 'select training type';
     this.datatypes = this.default;
+    this.athleteSelected = this.athleteId === undefined;
   }
   onChange2(deviceValue) {
     // this.trainingtype = this.trainingai.find(smth => smth.training === this.specificTraining).training;
@@ -127,6 +130,12 @@ export class StatisticsComponent implements OnInit {
       }],
     };
     this.showGraph = true;
+       if (this.trainingsToShow.map(a => a.trainingdate).length === 0) {
+       alert('There is nothing to show:( ');
+     }
+  }
+  test() {
+console.log(this.athleteId);
   }
 
 }

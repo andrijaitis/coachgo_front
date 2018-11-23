@@ -1,17 +1,38 @@
-<h5>Select athlete </h5>
-<select (change)="onChange($event.target.value)" [(ngModel)]="athleteId" placeholder="Select athlete">
-  <option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</option>
-</select>
-<h5>Select type of training </h5>
-<select (change)="onChange2($event.target.value)"  [(ngModel)]="trainingtype" placeholder="Select type">
-  <option  [value]="'basketball'">Basketball</option>
-  <option  [value]="'football'">Football</option>
-  <option  [value]="'fitness'">Fitness</option>
-</select>
-  <h5>Select type of data</h5>
-   <select (change)="onChange3($event.target.value)"  [(ngModel)]="dataTodisplay"  placeholder="Select data">
-    <option  [value]="key" *ngFor="let key of objectKeys(datatypes)">{{datatypes[key]}}</option>
-  </select>
+  <mat-tab-group>
+    <mat-tab label="Athlete">
+        <label class="" for="sel1">Select athlete:</label>
+      <select class=" form-control" id="sel1" (change)="onChange($event.target.value)" [(ngModel)]="athleteId" placeholder="Select athlete">
+      <option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</option>
+    </select>
+    </mat-tab>
+    <mat-tab [disabled]="athleteSelected" label="Training">
+        <label  class="select-p" for="sel1"> Select type:</label>
+        <select class="form-control" id="sel1" (change)="onChange2($event.target.value)"  [(ngModel)]="trainingtype" placeholder="Select type">
+             <option [value]="'basketball'">Basketball</option>
+            <option  [value]="'football'">Football</option>
+            <option  [value]="'fitness'">Fitness</option>
+          </select>
+    </mat-tab>
+    <mat-tab label="Tyoe of results">
+        <label class="" for="sel1"> Select data to display:</label>
+           <select  class=" form-control" id="sel1" (change)="onChange3($event.target.value)"  [(ngModel)]="dataTodisplay"  placeholder="Select data">
+            <option  [value]="key" *ngFor="let key of objectKeys(datatypes)">{{datatypes[key]}}</option>
+          </select>
+    </mat-tab>
+  </mat-tab-group>
+
+
+  
+
+
+
+
+
+
+
+
+
+
  <!-- <button class="form-button" (click)="updategraph()" mat-raised-button color="primary">Update graph</button>
 <button (click)="test()">test</button> -->
 <plotly-plot *ngIf="showGraph" [data]="graph.data" [layout]="graph.layout"></plotly-plot>
