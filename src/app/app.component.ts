@@ -26,11 +26,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  constructor(private authService: AuthService, private store: Store<AppState> ) {
+  constructor(private authService: AuthService, private store: Store<AppState>) {
       this.post = this.store.select('post');
       this.auth = this.store.select('auth');
 
 }
+
 
 editText() {
   this.store.dispatch(new PostActions.EditText(this.text));

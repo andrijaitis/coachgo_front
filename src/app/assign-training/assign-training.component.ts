@@ -3,6 +3,7 @@ import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
 import { TrainingService } from '../services/training.service';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-assign-training',
@@ -35,7 +36,7 @@ athletes: Athlete[] = [];
   }
 
   constructor(private athleteService: AthleteService, private trainingService: TrainingService,
-     private fb: FormBuilder) { }
+     private fb: FormBuilder , private modalService: ModalService) { }
 
   ngOnInit() {
     
@@ -95,7 +96,8 @@ athletes: Athlete[] = [];
         this.basketballForm.reset();  // put this back after testing
         this.fitnessForm.reset();  // put this back after testing
         this.footballForm.reset();  // put this back after testing
-        alert('Done');
+        // alert('Done');
+        this.modalService.open('Done');
       }, 2000);
     } else {
     }

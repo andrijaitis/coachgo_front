@@ -38,7 +38,8 @@ import { SimpleGraphComponent } from './simple-graph/simple-graph.component';
 import { StatisticsListComponent } from './statistics-list/statistics-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
-import { ModalBasicComponent } from './modal-basic';
+import { NgbdModalContent } from './my-modal/my-modal.component';
+
 
 
 
@@ -63,11 +64,14 @@ import { ModalBasicComponent } from './modal-basic';
     SimpleGraphComponent,
     StatisticsListComponent,
     AllStatisticsComponent,
-    ModalBasicComponent
+    NgbdModalContent
 
-     
+
 
   ],
+
+  entryComponents: [NgbdModalContent],
+
   imports: [
     NgbModule,
     BrowserModule,
@@ -109,7 +113,7 @@ import { ModalBasicComponent } from './modal-basic';
 
   ],
   providers: [AuthGuard, AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })

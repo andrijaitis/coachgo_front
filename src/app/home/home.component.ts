@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 import * as AuthActions from '../actions/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient,
     private fb: FormBuilder, private router: Router,
     private authService: AuthService, private userService: UserService,
-    private store: Store<AppState>) {
+    private store: Store<AppState>,
+    private modalService: ModalService) {
 
   }
 
@@ -58,7 +60,8 @@ export class HomeComponent implements OnInit {
         loginForm.value = false;
       } else if (answer.status === false) {
         console.log('zie answer2 ', answer);
-        alert('bitch u suck, wrong password or email!!!');
+        this.modalService.open('Please check your email or password');
+        // alert('bitch u suck, wrong password or email!!!');
       }
     });
   }

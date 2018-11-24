@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import { AthleteService } from '../services/athlete.service';
 import { Athlete } from '../entities/athlete';
 import { TrainingService } from '../services/training.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-statistics',
@@ -11,7 +12,8 @@ import { TrainingService } from '../services/training.service';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-  constructor(private athleteService: AthleteService, private trainingService: TrainingService) { }
+  constructor(private athleteService: AthleteService, private trainingService: TrainingService,
+    private modalService: ModalService) { }
   objectKeys = Object.keys;
   athletes: Athlete[] = [];
   athleteId;
@@ -131,7 +133,8 @@ export class StatisticsComponent implements OnInit {
     };
     this.showGraph = true;
        if (this.trainingsToShow.map(a => a.trainingdate).length === 0) {
-       alert('There is nothing to show:( ');
+       this.modalService.open(' Sorry but there is nothing to show from what you selected, please try something else');
+      //  alert('There is nothing to show:( ');
      }
   }
   test() {
