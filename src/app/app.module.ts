@@ -13,7 +13,6 @@ import { AuthGuard } from './auth-guard';
 import { AuthService } from './services/auth.service';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
-import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';
 import { AuthInterceptor } from 'src/interceptors/AuthInterceptor';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { postReducer } from './reducers/post.reducer';
@@ -35,12 +34,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PlotlyModule } from 'angular-plotly.js';
 import { SimpleGraphComponent } from './simple-graph/simple-graph.component';
-import { StatisticsListComponent } from './statistics-list/statistics-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
 import { NgbdModalContent } from './my-modal/my-modal.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
-import { SessionResultsComponent } from './session-results/session-results.component';
 import { ResultsModalComponent } from './results-modal/results-modal.component';
 
 
@@ -57,7 +53,6 @@ import { ResultsModalComponent } from './results-modal/results-modal.component';
     CoachDashComponent,
     AddAthleteComponent,
     SupportComponent,
-    AthleteDetailComponent,
     MainNavComponent,
     AtheleteListComponent,
     UpdateComponent,
@@ -65,11 +60,8 @@ import { ResultsModalComponent } from './results-modal/results-modal.component';
     AssignTrainingComponent,
     StatisticsComponent,
     SimpleGraphComponent,
-    StatisticsListComponent,
-    AllStatisticsComponent,
     NgbdModalContent,
     AllTrainingsComponent,
-    SessionResultsComponent,
     ResultsModalComponent
 
 

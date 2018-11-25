@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef, OnChanges, Output, EventEmitter } from '@angular/core';
-import { ChartService } from '../chart.service';
 import * as _ from 'lodash';
 import { AthleteService } from '../services/athlete.service';
 import { Athlete } from '../entities/athlete';
@@ -52,8 +51,8 @@ export class StatisticsComponent implements OnInit {
   FitnessTypes = {
     'squats': 'Squats',
     'pull': 'Pull-ups',
-    'push': 'Squats',
-    'Push': 'Push-up',
+    'push': 'Push-ups',
+    'kmr': 'Km run',
 
   };
   default = { default: 'select result type' };

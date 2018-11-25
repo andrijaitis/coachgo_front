@@ -8,14 +8,11 @@ import { CoachDashComponent } from './coach-dash/coach-dash.component';
 import { AuthGuard } from './auth-guard';
 import { AddAthleteComponent } from './add-athlete/add-athlete.component';
 import { SupportComponent } from './support/support.component';
-import { AthleteDetailComponent } from './athlete-detail/athlete-detail.component';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
 import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
 import { AssignTrainingComponent } from './assign-training/assign-training.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
-import { SessionResultsComponent } from './session-results/session-results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -25,12 +22,10 @@ const routes: Routes = [
   { path: 'coachdash', component: CoachDashComponent, canActivate: [AuthGuard] },
   { path: 'addathlete', component: AddAthleteComponent, canActivate: [AuthGuard] },
   { path: 'athletelist', component: AtheleteListComponent, canActivate: [AuthGuard] },
-  { path: 'athletedetail/:id', component: AthleteDetailComponent, canActivate: [AuthGuard]  },
   { path: 'editAthlete/:id', component: EditAthleteComponent, canActivate: [AuthGuard]  },
   { path: 'seeall/:id', component: AllTrainingsComponent, canActivate: [AuthGuard]  },
   { path: 'assigntraining', component: AssignTrainingComponent, canActivate: [AuthGuard]  },
   { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard]  },
-  { path: 'sesresults/:id', component: SessionResultsComponent, canActivate: [AuthGuard]  },
   { path: 'support', component: SupportComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
