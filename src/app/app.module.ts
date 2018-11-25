@@ -39,6 +39,9 @@ import { StatisticsListComponent } from './statistics-list/statistics-list.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllStatisticsComponent } from './all-statistics/all-statistics.component';
 import { NgbdModalContent } from './my-modal/my-modal.component';
+import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
+import { SessionResultsComponent } from './session-results/session-results.component';
+import { ResultsModalComponent } from './results-modal/results-modal.component';
 
 
 
@@ -64,13 +67,16 @@ import { NgbdModalContent } from './my-modal/my-modal.component';
     SimpleGraphComponent,
     StatisticsListComponent,
     AllStatisticsComponent,
-    NgbdModalContent
+    NgbdModalContent,
+    AllTrainingsComponent,
+    SessionResultsComponent,
+    ResultsModalComponent
 
 
 
   ],
 
-  entryComponents: [NgbdModalContent],
+  entryComponents: [NgbdModalContent, ResultsModalComponent],
 
   imports: [
     NgbModule,

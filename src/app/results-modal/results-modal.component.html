@@ -1,0 +1,159 @@
+<div class="modal-header">
+    <h4 class="modal-title">Information {{ training.firstName }} training {{ training.training }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+      <table *ngIf="training.training === 'basketball'" class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Activity </th>
+              <th scope="col">Result </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Minutes per game</td>
+              <td>{{ training.mpg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Field goals</td>
+              <td>{{ training.fg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Three points</td>
+              <td>{{ training.threep }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Free throws</td>
+              <td>{{ training.ft }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Points per game</td>
+              <td>{{ training.ppg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Minutes per game</td>
+              <td>{{ training.mpg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Rebounds per game</td>
+              <td>{{ training.rpg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Assists per game</td>
+              <td>{{ training.apg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>Blocks per game</td>
+              <td>{{ training.bpg }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <table *ngIf="training.training === 'fitness'" class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Activity </th>
+              <th scope="col">Result </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Squats</td>
+              <td>{{ training.squats }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Pull-ups</td>
+              <td>{{ training.pull }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Push-ups</td>
+              <td>{{ training.threep }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Kilometers run</td>
+              <td>{{ training.push }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Points per game</td>
+              <td>{{ training.kmr }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+      <table *ngIf="training.training === 'football'" class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Activity </th>
+              <th scope="col">Result </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Minutes per training</td>
+              <td>{{ training.mins }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Total goals</td>
+              <td>{{ training.goals }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Total assists</td>
+              <td>{{ training.assists }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Yellow card</td>
+              <td>{{ training.yel }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Red card</td>
+              <td>{{ training.red }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Shots per training</td>
+              <td>{{ training.spg }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>AerialsWon</td>
+              <td>{{ training.aerialswon }}</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Man of the match</td>
+              <td>{{ training.motm }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
