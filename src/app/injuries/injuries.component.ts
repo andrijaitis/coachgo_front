@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
+import { Injury } from '../entities/injury';
 
 @Component({
   selector: 'app-injuries',
@@ -8,12 +9,6 @@ import { AthleteService } from '../services/athlete.service';
   styleUrls: ['./injuries.component.scss']
 })
 
-export interface Injury {
-  activity: string;
-  description: string;
-  type: string;
-
-}
 
 export class InjuriesComponent implements OnInit {
   athletes: Athlete[] = [];
