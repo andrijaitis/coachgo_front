@@ -41,6 +41,14 @@ updateAthlete(athlete: Athlete) {
   return this.http.put(`${url}`, athlete);
 }
 
+athleteInjury(athleteInjury) {
+  const url = environment.apiUrl + '/athleteinjury' + '/' + `${athleteInjury.athleteId}`;
+  return this.http.put(`${url}`, athleteInjury);
+}
+
+getInjuredAthletes() {
+  return this.http.get<Athlete[]>(environment.apiUrl + '/injured');
+}
 
 
   constructor(private http: HttpClient , private userService: UserService) { }

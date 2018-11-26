@@ -1,0 +1,58 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="true" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Athlete data
+      </mat-panel-title>
+      <mat-panel-description>
+        Select athlete and more information about injurie
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <h5>Select user</h5>
+    <mat-select required  [(ngModel)]="athleteId"  placeholder="Select athlete">
+      <mat-option *ngFor="let athlete of athletes"  [value]="athlete._id ">{{athlete.firstName}}</mat-option>
+    </mat-select>
+    <h5>Select type</h5>
+    <mat-select required [(ngModel)]="injury.type" placeholder="Select type">
+      <mat-option  value="injury ">Injury </mat-option>
+      <mat-option  value="disease">Disease</mat-option>
+    </mat-select>
+    <mat-select required [(ngModel)]="injury.activity" placeholder="Select activity">
+      <mat-option  value="basketball ">Basketball </mat-option>
+      <mat-option  value="football">Football</mat-option>
+      <mat-option  value="fitness">Fitness</mat-option>
+    </mat-select>
+    <mat-form-field>
+      <input type="text" required [(ngModel)]="injury.description" matInput placeholder="Description">
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="addInjury()">Register injury</button>
+      <!-- <button mat-button color="warn" (click)="test()">test</button> -->
+    </mat-action-row>
+     
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<h3 style="text-align: center;">Top 3 athletes most likely to get hurt</h3>
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Athlete name</th>
+      <th scope="col">Number of injuries</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr   *ngFor="let injured of injuredList; index as i;" >
+     <th *ngIf="i<3 &&  injured.numberOfIjuries !== 0" scope="row">{{i}}</th>
+      <td *ngIf="i<3 && injured.numberOfIjuries !== 0"> {{ injured.firstName }}</td>
+      <td *ngIf="i<3 &&  injured.numberOfIjuries !== 0">{{ injured.numberOfIjuries }}</td>
+    </tr>
+
+  </tbody>
+</table>

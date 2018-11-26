@@ -38,6 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from './my-modal/my-modal.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
 import { ResultsModalComponent } from './results-modal/results-modal.component';
+import { InjuriesComponent } from './injuries/injuries.component';
 
 
 
@@ -62,7 +63,8 @@ import { ResultsModalComponent } from './results-modal/results-modal.component';
     SimpleGraphComponent,
     NgbdModalContent,
     AllTrainingsComponent,
-    ResultsModalComponent
+    ResultsModalComponent,
+    InjuriesComponent
 
 
 

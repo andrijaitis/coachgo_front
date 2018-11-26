@@ -59,9 +59,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['coachdash']);
         loginForm.value = false;
       } else if (answer.status === false) {
-        console.log('zie answer2 ', answer);
         this.modalService.open('Wrong email or passord, Please try again');
-        // alert('bitch u suck, wrong password or email!!!');
       }
     });
   }

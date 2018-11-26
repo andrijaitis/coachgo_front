@@ -13,6 +13,7 @@ import { EditAthleteComponent } from './edit-athlete/edit-athlete.component';
 import { AssignTrainingComponent } from './assign-training/assign-training.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
+import { InjuriesComponent } from './injuries/injuries.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'seeall/:id', component: AllTrainingsComponent, canActivate: [AuthGuard]  },
   { path: 'assigntraining', component: AssignTrainingComponent, canActivate: [AuthGuard]  },
   { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard]  },
+  { path: 'injuries', component: InjuriesComponent, canActivate: [AuthGuard]  },
   { path: 'support', component: SupportComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
