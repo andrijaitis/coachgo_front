@@ -7,10 +7,18 @@ import { AthleteService } from '../services/athlete.service';
   templateUrl: './injuries.component.html',
   styleUrls: ['./injuries.component.scss']
 })
+
+export interface Injury {
+  activity: string;
+  description: string;
+  type: string;
+
+}
+
 export class InjuriesComponent implements OnInit {
   athletes: Athlete[] = [];
   athleteId;
-  injury = {};
+  injury: Injury;
   injuredList = [];
 
   constructor(private athleteService: AthleteService) { }
