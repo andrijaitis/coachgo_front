@@ -50,7 +50,7 @@ export class AtheleteListComponent implements OnInit {
   athletes: Athlete[] = [];
   noAthletes = false;
 
-  displayedColumns: string[] = ['email', 'firstName', 'sport', 'active', 'gender', '_id'];
+  displayedColumns: string[] = ['email', 'firstName', 'sport', 'active', '_id'];
   dataSource = new MatTableDataSource(this.athletes); //athletes from server
 
   constructor(private athleteService: AthleteService) { }
