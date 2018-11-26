@@ -13,7 +13,7 @@ import { Injury } from '../entities/injury';
 export class InjuriesComponent implements OnInit {
   athletes: Athlete[] = [];
   athleteId;
-  injury: Injury;
+  injury: Injury = {activity: null, type: null, description: null};
   injuredList = [];
 
   constructor(private athleteService: AthleteService) { }
