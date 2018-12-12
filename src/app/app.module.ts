@@ -39,6 +39,9 @@ import { NgbdModalContent } from './my-modal/my-modal.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
 import { ResultsModalComponent } from './results-modal/results-modal.component';
 import { InjuriesComponent } from './injuries/injuries.component';
+import { SettingsComponent } from './settings/settings.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ColorthemeDirective } from './colortheme.directive';
 
 
 
@@ -64,7 +67,9 @@ import { InjuriesComponent } from './injuries/injuries.component';
     NgbdModalContent,
     AllTrainingsComponent,
     ResultsModalComponent,
-    InjuriesComponent
+    InjuriesComponent,
+    SettingsComponent,
+    ColorthemeDirective
 
 
 
@@ -103,6 +108,7 @@ import { InjuriesComponent } from './injuries/injuries.component';
     MatTabsModule,
     PlotlyModule,
     NgbModule,
+    MatSlideToggleModule,
       StoreModule.forRoot({
       post: postReducer, auth: authReducer
 

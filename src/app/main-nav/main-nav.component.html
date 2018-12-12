@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar #toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item *ngIf="(auth | async)?.isLoggedIn" >{{(auth | async)?.usrEmail}}</a>
       <a mat-list-item routerLink="coachdash">Coach Dash</a>
@@ -11,9 +11,9 @@
       <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
       <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
     </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
+  </mat-sidenav >
+  <mat-sidenav-content #sidenav2>
+    <mat-toolbar #toolbar2 color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -25,6 +25,9 @@
       <span routerLink="/home">CoachGo Experience!</span>
       <span class="spacer"></span>
       <div *ngIf="!(isHandset$ | async)">
+          <a *ngIf="!theme" (click)="changeTheme()">Dark theme </a>
+          <a *ngIf="theme" (click)="changeTheme()">Classic theme </a>
+          <!-- <a  routerLink="settings">Settings </a> -->
           <a *ngIf="(auth | async)?.isLoggedIn"> {{(auth | async)?.usrEmail}}</a>
           <a routerLink="coachdash">Coach Dash</a>
           <a *ngIf="!(auth | async)?.isLoggedIn" routerLink="register">Sign up </a>

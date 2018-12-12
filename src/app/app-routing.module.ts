@@ -15,6 +15,7 @@ import { AssignTrainingComponent } from './assign-training/assign-training.compo
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
 import { InjuriesComponent } from './injuries/injuries.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard] },
   { path: 'injuries', component: InjuriesComponent, canActivate: [AuthGuard] },
   { path: 'support', component: SupportComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
