@@ -42,6 +42,7 @@ import { InjuriesComponent } from './injuries/injuries.component';
 import { SettingsComponent } from './settings/settings.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ColorthemeDirective } from './colortheme.directive';
+import { TimerComponent } from './timer/timer.component';
 
 
 
@@ -69,7 +70,8 @@ import { ColorthemeDirective } from './colortheme.directive';
     ResultsModalComponent,
     InjuriesComponent,
     SettingsComponent,
-    ColorthemeDirective
+    ColorthemeDirective,
+    TimerComponent
 
 
 

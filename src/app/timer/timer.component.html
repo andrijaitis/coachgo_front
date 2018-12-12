@@ -1,0 +1,26 @@
+
+
+
+
+
+
+<mat-card class="timer-card">
+    <mat-card-content>
+        <h2 class="example-h2">Timer</h2>
+    
+        <section class="example-section">
+            <button mat-raised-button color="primary" (click)='startTimer()'>Start</button>
+            <button mat-raised-button color="primary" (click)='pauseTimer()'>Pause</button>
+            <button mat-raised-button color="primary" (click)='resetTimer()'>Reset</button>
+            
+        </section>
+        <section>
+            <p class="seconds">{{timeLeft }} <span>sec</span></p> 
+        </section>
+        <section>
+
+          
+        </section>
+      </mat-card-content>
+
+  </mat-card>
