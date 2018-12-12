@@ -17,6 +17,7 @@ import { AllTrainingsComponent } from './all-trainings/all-trainings.component';
 import { InjuriesComponent } from './injuries/injuries.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TimerComponent } from './timer/timer.component';
+import { BodyComponent } from './body/body.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard] },
   { path: 'injuries', component: InjuriesComponent, canActivate: [AuthGuard] },
   { path: 'timer', component: TimerComponent, canActivate: [AuthGuard] },
+  { path: 'body', component: BodyComponent, canActivate: [AuthGuard] },
   { path: 'support', component: SupportComponent },
   { path: 'settings', component: SettingsComponent },
   { path: '**', component: PageNotFoundComponent },
