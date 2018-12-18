@@ -55,6 +55,12 @@ export class StatisticsComponent implements OnInit {
     'kmr': 'Km run',
 
   };
+
+  SwimmingTypes = {
+    'time': 'Time',
+    'rounds': 'Rounds',
+
+  };
   default = { default: 'select result type' };
 
   datatypes: any = this.default;
@@ -102,6 +108,8 @@ export class StatisticsComponent implements OnInit {
       this.datatypes = this.FitnessTypes;
     } else if (training === 'fitness') {
       this.datatypes = this.FitnessTypes;
+    } else if (training === 'swimming') {
+      this.datatypes = this.SwimmingTypes;
     } else {
       this.datatypes = { 'unavailable': 'unavailable' };
     }

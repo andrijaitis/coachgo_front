@@ -22,6 +22,7 @@ athletes: Athlete[] = [];
   myGroup: FormGroup;
   footballForm: FormGroup;
   fitnessForm: FormGroup;
+  swimmingForm: FormGroup;
 
   setStep(index: number) {
     this.step = index;
@@ -70,6 +71,13 @@ athletes: Athlete[] = [];
       pull: ['', Validators.required],
       push: ['', Validators.required],
       kmr: ['', Validators.required],
+      trainingdate: ['', Validators.required],
+    });
+    this.swimmingForm = this.fb.group({
+      id: [this.athleteId, Validators.required],
+      technique: ['', Validators.required],
+      time: ['', Validators.required],
+      rounds: ['', Validators.required],
       trainingdate: ['', Validators.required],
     });
 

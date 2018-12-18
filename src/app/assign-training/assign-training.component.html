@@ -20,6 +20,7 @@
       <mat-option  value="basketball">Basketball</mat-option>
       <mat-option  value="football">Football</mat-option>
       <mat-option  value="fitness">Fitness</mat-option>
+      <mat-option  value="swimming">Swimming</mat-option>
      </mat-select>
 
     <mat-action-row>
@@ -115,6 +116,28 @@
               <input required [(ngModel)]="athleteId" hidden="true" formControlName="id" >
               <input required [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
         </div>
+        <!-- //swimming training program -->
+        <div  [formGroup]="swimmingForm" *ngIf="training === 'swimming'">
+          <!-- <mat-form-field >
+            <input type="text" required formControlName="technique" matInput placeholder="technique" >
+          </mat-form-field> -->
+
+          <mat-select required formControlName="technique" placeholder="Select technique">
+              <mat-option  value="Freestyle">FreeStyle</mat-option>
+              <mat-option  value="Front Crawl">Front Crawl</mat-option>
+              <mat-option  value="Trudgen">Trudgen</mat-option>
+              <mat-option  value="Dog paddle">Dog paddle</mat-option>
+             </mat-select>
+
+          <mat-form-field >
+            <input type="number" required formControlName="time" matInput placeholder="time" >
+          </mat-form-field>
+          <mat-form-field>
+            <input type="number" required formControlName="rounds" matInput placeholder="Rounds">
+          </mat-form-field>
+             <input required [(ngModel)]="athleteId" hidden="true" formControlName="id" >
+              <input required [(ngModel)]="trainingdate" hidden=true formControlName="trainingdate">
+        </div>
   
 
     <mat-action-row>
@@ -145,6 +168,7 @@
       <button  *ngIf="training === 'basketball'" mat-raised-button color="primary" type="submit" [disabled]="basketballForm.invalid" (click)="onSubmit(basketballForm)">Assign basketball results</button>
       <button  *ngIf="training === 'football'" mat-raised-button color="primary" type="submit" [disabled]="footballForm.invalid" (click)="onSubmit(footballForm)">Assign football results</button>
       <button  *ngIf="training === 'fitness'" mat-raised-button color="primary" type="submit" [disabled]="fitnessForm.invalid" (click)="onSubmit(fitnessForm)">Assign fitness results</button>
+      <button  *ngIf="training === 'swimming'" mat-raised-button color="primary" type="submit" [disabled]="swimmingForm.invalid" (click)="onSubmit(swimmingForm)">Assign swimming results</button>
     </mat-action-row>
   </mat-expansion-panel>
 

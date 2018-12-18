@@ -94,6 +94,33 @@
             </tr>
             </tbody>
         </table>
+      <table *ngIf="training.training === 'swimming'" class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Activity </th>
+              <th scope="col">Result </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Technique</td>
+              <td>{{ training.technique }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Rounds</td>
+              <td>{{ training.rounds }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Time</td>
+              <td>{{ training.time }}</td>
+            </tr>
+
+            </tbody>
+        </table>
 
       <table *ngIf="training.training === 'football'" class="table">
           <thead>
