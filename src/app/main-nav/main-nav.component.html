@@ -23,7 +23,21 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span routerLink="/home">CoachGo Experience!</span>
+      <!-- <span class="spacer"></span> -->
+      <button *ngIf="(auth | async)?.isLoggedIn && !(isHandset$ | async)" mat-raised-button color="primary" (click)="goBack()">go back</button>
+
       <span class="spacer"></span>
+      <form *ngIf="(auth | async)?.isLoggedIn && !(isHandset$ | async)" class="example-form">
+          <mat-form-field class="example-full-width">
+            <input type="text"   matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <!-- <mat-option routerLink="/seeall/{{option._id}}" *ngFor="let option of filteredOptions | async" [value]="option"> -->
+              <mat-option (click)="goToAthlete(option._id)"  *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.firstName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
       <div *ngIf="!(isHandset$ | async)">
           <a *ngIf="!theme" (click)="changeTheme()">Dark theme </a>
           <a *ngIf="theme" (click)="changeTheme()">Classic theme </a>
@@ -33,9 +47,11 @@
           <a *ngIf="!(auth | async)?.isLoggedIn" routerLink="register">Sign up </a>
           <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
           <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
+          
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

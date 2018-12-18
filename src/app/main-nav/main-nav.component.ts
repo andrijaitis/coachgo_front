@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Auth } from '../entities/auth.model';
 import * as AuthActions from '../actions/auth.actions';
@@ -9,6 +9,16 @@ import { AppState } from '../app.state';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import {Renderer2} from '@angular/core';
+import { Location } from '@angular/common';
+import { FormControl } from '@angular/forms';
+import { AthleteService } from '../services/athlete.service';
+import { OurAthletes } from '../entities/ourAthletes';
+
+
+
+// export interface User {
+//   firstName: string;
+// }
 
 @Component({
   selector: 'app-main-nav',
@@ -19,6 +29,13 @@ export class MainNavComponent implements OnInit {
   auth: Observable<Auth>;
   theme = false;
   
+  myControl = new FormControl();
+  options: any = [
+
+  ];
+  filteredOptions: Observable<OurAthletes[]>;
+
+
 
   @ViewChild('toolbar', {read: ElementRef}) toolbar: ElementRef;
   @ViewChild('toolbar2', {read: ElementRef}) toolbar2: ElementRef;
@@ -30,11 +47,31 @@ export class MainNavComponent implements OnInit {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>,
-     private userService: UserService, private router: Router, private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private location: Location, private breakpointObserver: BreakpointObserver, private store: Store<AppState>,
+     private userService: UserService, private router: Router, private renderer: Renderer2, private el: ElementRef,
+     private athleteService: AthleteService) {}
 
   ngOnInit(): void {
     this.auth = this.store.select('auth');
+
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith<string | OurAthletes>(''),
+        map(value => typeof value === 'string' ? value : value.firstName),
+        map(firstName => firstName ? this._filter(firstName) : this.options.slice())
+      );
+
+      this.getAthletes();
+  }
+
+  displayFn(ourAthletes?: OurAthletes): string | undefined {
+    return ourAthletes ? ourAthletes.firstName : undefined;
+  }
+
+  private _filter(firstName: string): OurAthletes[] {
+    const filterValue = firstName.toLowerCase();
+
+    return this.options.filter(option => option.firstName.toLowerCase().indexOf(filterValue) === 0);
   }
 
   logout() {
@@ -58,11 +95,24 @@ export class MainNavComponent implements OnInit {
       this.drawer.nativeElement.style.backgroundColor = '#fafafa';
       this.sidenav2.nativeElement.style.backgroundColor = '#fafafa';
     }
+  }
 
-    
+  goBack(): void {
+    this.location.back();
+  }
 
+  goToAthlete(id) {
+    this.router.navigate([`/blank`]);
+    setTimeout(() => {
+      this.router.navigate([`/seeall/${id}`]);
+    }, 1);
 
   }
 
+  getAthletes(): void {
+    this.athleteService.getAthletes()
+      // .subscribe(athletes => this.athletes = athletes);
+      .subscribe(athletesfromsrv =>  this.options.push(...athletesfromsrv));
+  }
 }
 

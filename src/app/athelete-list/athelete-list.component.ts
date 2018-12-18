@@ -2,23 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
 import { MatTableDataSource } from '@angular/material';
+import { OurAthletes } from '../entities/ourAthletes';
 
 
-export interface OurAthletes {
-  email: string;
-  _id: string;
-  creator: string;
-  firstName: string;
-  lastName: string;
-  age: string;
-  height: string;
-  dateCreated: string;
-  sport: string;
-  phone: string;
-  active: string;
-  __v: number;
-  gender: string;
-}
+
 
 
 const USERS_DATA: OurAthletes[] = [

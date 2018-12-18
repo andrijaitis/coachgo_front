@@ -18,6 +18,8 @@ import { InjuriesComponent } from './injuries/injuries.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TimerComponent } from './timer/timer.component';
 import { BodyComponent } from './body/body.component';
+import { MusicPlayerComponent } from './music-player/music-player.component';
+import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,7 +36,9 @@ const routes: Routes = [
   { path: 'injuries', component: InjuriesComponent, canActivate: [AuthGuard] },
   { path: 'timer', component: TimerComponent, canActivate: [AuthGuard] },
   { path: 'body', component: BodyComponent, canActivate: [AuthGuard] },
+  { path: 'musicplayer', component: MusicPlayerComponent, canActivate: [AuthGuard] },
   { path: 'support', component: SupportComponent },
+  { path: 'blank', component: BlankComponent },
   { path: 'settings', component: SettingsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -22,7 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
    MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
    MatMenuModule, MatProgressSpinnerModule, MatColumnDef, MatHeaderCellDef, MatOptionModule,
-    MatSelectModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatTabsModule} from '@angular/material';
+    MatSelectModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatTabsModule, MatAutocomplete, MatAutocompleteModule} from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AtheleteListComponent } from './athelete-list/athelete-list.component';
@@ -44,6 +44,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ColorthemeDirective } from './colortheme.directive';
 import { TimerComponent } from './timer/timer.component';
 import { BodyComponent } from './body/body.component';
+import { MusicPlayerComponent } from './music-player/music-player.component';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
+import { BlackComponent } from './black/black.component';
+import { BlankComponent } from './blank/blank.component';
 
 
 
@@ -73,7 +77,10 @@ import { BodyComponent } from './body/body.component';
     SettingsComponent,
     ColorthemeDirective,
     TimerComponent,
-    BodyComponent
+    BodyComponent,
+    MusicPlayerComponent,
+    BlackComponent,
+    BlankComponent
 
 
 
@@ -109,9 +116,11 @@ import { BodyComponent } from './body/body.component';
     MatOptionModule,
     MatSelectModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
     MatTabsModule,
     PlotlyModule,
     NgbModule,
+    YoutubePlayerModule,
     MatSlideToggleModule,
       StoreModule.forRoot({
       post: postReducer, auth: authReducer
