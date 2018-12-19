@@ -48,6 +48,7 @@ import { MusicPlayerComponent } from './music-player/music-player.component';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { BlackComponent } from './black/black.component';
 import { BlankComponent } from './blank/blank.component';
+import { EditRedultsModalComponent } from './edit-redults-modal/edit-redults-modal.component';
 
 
 
@@ -80,13 +81,14 @@ import { BlankComponent } from './blank/blank.component';
     BodyComponent,
     MusicPlayerComponent,
     BlackComponent,
-    BlankComponent
+    BlankComponent,
+    EditRedultsModalComponent
 
 
 
   ],
 
-  entryComponents: [NgbdModalContent, ResultsModalComponent],
+  entryComponents: [NgbdModalContent, ResultsModalComponent, EditRedultsModalComponent],
 
   imports: [
     NgbModule,

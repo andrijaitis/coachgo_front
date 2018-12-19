@@ -17,6 +17,7 @@ export class TrainingService implements OnInit {
   }
 
 
+
   getTrainings(id: string): Observable<Athlete> {
     return this.http.post<Athlete>(environment.apiUrl + '/trainings', id);
   }

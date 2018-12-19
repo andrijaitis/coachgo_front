@@ -5,6 +5,8 @@
         <th scope="col">#</th>
         <th scope="col">Training date</th>
         <th scope="col">Type of training</th>
+        <th scope="col">Done</th>
+        <th scope="col">Notes</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -13,8 +15,11 @@
         <th scope="row">{{i}}</th>
         <td>{{ training.trainingdate | date }}</td>
         <td>{{ training.training }}</td>
+        <td>{{ training.done }}</td>
+        <td>{{ training.notes }}</td>
         <td>
           <Button class="btn btn-primary" (click)="showEverything(training)" >See all results</Button>
+          <Button class="btn btn-primary" (click)="editResults(training)" >Update results</Button>
         </td>
       </tr>
 

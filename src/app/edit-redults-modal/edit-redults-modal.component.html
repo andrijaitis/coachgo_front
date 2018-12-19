@@ -1,0 +1,183 @@
+<div class="modal-header">
+  <h4 class="modal-title">Updating {{ training.firstName }} training {{ training.training }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+    <table *ngIf="training.training === 'basketball'" class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Activity </th>
+            <th scope="col">Result </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Minutes per game</td>
+            <input type="number" [(ngModel)]="training.mpg">
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Field goals</td>
+            <input type="number" [(ngModel)]="training.fg">
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Three points</td>
+            <input type="number" [(ngModel)]="training.threep">
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Free throws</td>
+            <input type="number" [(ngModel)]="training.ft">
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Points per game</td>
+            <input type="number" [(ngModel)]="training.ppg">
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Minutes per game</td>
+            <input type="number" [(ngModel)]="training.mpg">
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Rebounds per game</td>
+            <input type="number" [(ngModel)]="training.rpg">
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Assists per game</td>
+            <input type="number" [(ngModel)]="training.apg">
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>Blocks per game</td>
+            <input type="number" [(ngModel)]="training.bpg">
+          </tr>
+        </tbody>
+      </table>
+
+    <table *ngIf="training.training === 'fitness'" class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Activity </th>
+            <th scope="col">Result </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Squats</td>
+            <input type="number" [(ngModel)]="training.squats">
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Pull-ups</td>
+            <input type="number" [(ngModel)]="training.pull">
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Push-ups</td>
+            <input type="number" [(ngModel)]="training.push">
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Kilometers run</td>
+            <input type="number" [(ngModel)]="training.kmr">
+          </tr>
+          </tbody>
+      </table>
+    <table *ngIf="training.training === 'swimming'" class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Activity </th>
+            <th scope="col">Result </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Technique</td>
+            <input type="number" [(ngModel)]="training.technique">
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Rounds</td>
+            <input type="number" [(ngModel)]="training.rounds">
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Time</td>
+            <input type="number" [(ngModel)]="training.time">
+          </tr>
+
+          </tbody>
+      </table>
+
+    <table *ngIf="training.training === 'football'" class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Activity </th>
+            <th scope="col">Result </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Minutes per training</td>
+            <input type="number" [(ngModel)]="training.mins">
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Total goals</td>
+            <td>{{ training.goals }}</td>
+            <input type="number" [(ngModel)]="training.goals">
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Total assists</td>
+            <input type="number" [(ngModel)]="training.assists">
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Yellow card</td>
+            <input type="number" [(ngModel)]="training.yel">
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Red card</td>
+            <input type="number" [(ngModel)]="training.red">
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Shots per training</td>
+            <input type="number" [(ngModel)]="training.spg">
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>AerialsWon</td>
+            <input type="number" [(ngModel)]="training.aerialswon">
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Man of the match</td>
+            <input type="number" [(ngModel)]="training.motm">
+          </tr>
+        </tbody>
+      </table>
+
+
+</div>
+<div class="modal-footer">
+  <!-- <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button> -->
+  <button type="button" class="btn btn-outline-dark" (click)="update()">Update</button>
+</div>

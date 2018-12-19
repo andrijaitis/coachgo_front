@@ -17,6 +17,9 @@ athletes: Athlete[] = [];
   step = 0;
   athleteId;
   trainingdate;
+  done = false;
+  equipment = 'basketball';
+  notes = '';
  
  public basketballForm: any;
   myGroup: FormGroup;
@@ -64,6 +67,10 @@ athletes: Athlete[] = [];
       aerialswon: ['', Validators.required],
       motm: ['', Validators.required],
       trainingdate: ['', Validators.required],
+
+      equipment: [this.equipment, Validators.required],
+      done: [this.done, Validators.required],
+      notes: [this.equipment, Validators.maxLength(25)],
     });
     this.fitnessForm = this.fb.group({
       id: [this.athleteId, Validators.required],
@@ -72,6 +79,10 @@ athletes: Athlete[] = [];
       push: ['', Validators.required],
       kmr: ['', Validators.required],
       trainingdate: ['', Validators.required],
+
+      equipment: [this.equipment, Validators.required],
+      done: [this.done, Validators.required],
+      notes: [this.equipment, Validators.maxLength(25)],
     });
     this.swimmingForm = this.fb.group({
       id: [this.athleteId, Validators.required],
@@ -79,6 +90,10 @@ athletes: Athlete[] = [];
       time: ['', Validators.required],
       rounds: ['', Validators.required],
       trainingdate: ['', Validators.required],
+
+      equipment: [this.equipment, Validators.required],
+      done: [this.done, Validators.required],
+      notes: [this.equipment, Validators.maxLength(25)],
     });
 
   this.getAthletes();
@@ -97,6 +112,10 @@ athletes: Athlete[] = [];
     if (trainingFrm.valid) {
       const trainingFORM = trainingFrm.value;
       trainingFORM.training = this.training;
+
+      trainingFORM.done = this.done;
+      trainingFORM.equipment = this.equipment;
+      trainingFORM.notes = this.notes;
       this.trainingService.addTraining(trainingFORM).subscribe();
       setTimeout(() => {
         // this.router.navigate(['athletelist']);

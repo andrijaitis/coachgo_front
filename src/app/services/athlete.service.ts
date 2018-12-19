@@ -51,5 +51,10 @@ getInjuredAthletes() {
 }
 
 
+updateTraining(training) {
+  console.log(training);
+return this.http.put(environment.apiUrl + '/updatetraining' + '/' + `${training.athlete}`, training);
+}
+
   constructor(private http: HttpClient , private userService: UserService) { }
 }

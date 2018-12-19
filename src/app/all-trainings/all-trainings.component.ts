@@ -41,5 +41,11 @@ showEverything(training) {
   this.modalService.showComplete(training);
 }
 
+editResults(training) {
+  console.log(training);
+  training.firstName = this.athlete.firstName;
+  this.modalService.editResults(training);
+}
+
 }
 
