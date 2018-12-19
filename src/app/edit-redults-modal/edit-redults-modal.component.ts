@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AthleteService } from '../services/athlete.service';
+// import { ModalService } from '../services/modal.service';
 
 
 @Component({

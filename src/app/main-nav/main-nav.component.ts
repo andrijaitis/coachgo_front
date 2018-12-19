@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 import { FormControl } from '@angular/forms';
 import { AthleteService } from '../services/athlete.service';
 import { OurAthletes } from '../entities/ourAthletes';
+import { ModalService } from '../services/modal.service';
 
 
 
@@ -49,7 +50,7 @@ export class MainNavComponent implements OnInit {
 
   constructor(private location: Location, private breakpointObserver: BreakpointObserver, private store: Store<AppState>,
      private userService: UserService, private router: Router, private renderer: Renderer2, private el: ElementRef,
-     private athleteService: AthleteService) {}
+     private athleteService: AthleteService, private modalService: ModalService) {}
 
   ngOnInit(): void {
     this.auth = this.store.select('auth');
@@ -76,7 +77,8 @@ export class MainNavComponent implements OnInit {
 
   logout() {
     this.userService.logout();
-    alert('logged out');
+    // alert('logged out');
+    this.modalService.open('logged out');
     this.router.navigate(['/home']);
   }
 // theme changer
