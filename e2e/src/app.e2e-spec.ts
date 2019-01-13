@@ -7,8 +7,8 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display CoachGo logo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to couchgo!');
+    expect(page.getParagraphText()).toEqual('CoachGo Experience!');
   });
 });

@@ -22,7 +22,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span routerLink="/home">CoachGo Experience!</span>
+      <!-- <h1 id="testlogo">CoachGo Experience!</h1> -->
+      <span id="testlogo" routerLink="/home">CoachGo Experience!</span>
       <!-- <span class="spacer"></span> -->
       <button *ngIf="(auth | async)?.isLoggedIn && !(isHandset$ | async)" mat-raised-button color="primary" (click)="goBack()">go back</button>
 
@@ -45,7 +46,7 @@
           <a *ngIf="(auth | async)?.isLoggedIn"> {{(auth | async)?.usrEmail}}</a>
           <a routerLink="coachdash">Coach Dash</a>
           <a *ngIf="!(auth | async)?.isLoggedIn" routerLink="register">Sign up </a>
-          <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
+          <button id="e2e-login" *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
           <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
           
       </div>
