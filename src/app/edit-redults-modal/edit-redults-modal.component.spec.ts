@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditRedultsModalComponent } from './edit-redults-modal.component';
+// import { EditRedultsModalComponent } from './edit-redults-modal.component';
 
-describe('EditRedultsModalComponent', () => {
-  let component: EditRedultsModalComponent;
-  let fixture: ComponentFixture<EditRedultsModalComponent>;
+// describe('EditRedultsModalComponent', () => {
+//   let component: EditRedultsModalComponent;
+//   let fixture: ComponentFixture<EditRedultsModalComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ EditRedultsModalComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ EditRedultsModalComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(EditRedultsModalComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(EditRedultsModalComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

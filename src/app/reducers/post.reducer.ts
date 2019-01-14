@@ -4,6 +4,8 @@ import { Post } from '../entities/post.model';
 export type Action = PostActions.All;
 
 
+// pure functions
+
 /// Default app state
 const defaultState: Post = {
     text: 'Hello. I am the default post',

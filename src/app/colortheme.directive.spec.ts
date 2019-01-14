@@ -1,3 +1,5 @@
+//good test
+
 import { ColorthemeDirective } from './colortheme.directive';
 
 describe('ColorthemeDirective', () => {

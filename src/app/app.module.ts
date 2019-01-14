@@ -49,6 +49,7 @@ import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { BlackComponent } from './black/black.component';
 import { BlankComponent } from './blank/blank.component';
 import { EditRedultsModalComponent } from './edit-redults-modal/edit-redults-modal.component';
+import { Filter2Pipe } from './pipes/filter2.pipe';
 
 
 
@@ -82,7 +83,8 @@ import { EditRedultsModalComponent } from './edit-redults-modal/edit-redults-mod
     MusicPlayerComponent,
     BlackComponent,
     BlankComponent,
-    EditRedultsModalComponent
+    EditRedultsModalComponent,
+    Filter2Pipe
 
 
 
