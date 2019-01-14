@@ -2,8 +2,6 @@ import { Filter2Pipe } from './filter2.pipe';
 
 
 
-
-
     // this.athletes = [
     //   { _id: '11', name: 'Michael' },
     //   { _id: '11', name: 'Joe' },

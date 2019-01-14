@@ -48,7 +48,7 @@ downvote() {
 }
 
 changeAuhtText() {
-  this.store.dispatch(new AuthActions.SetUserEmail('shit'));
+  this.store.dispatch(new AuthActions.SetUserEmail('stuff'));
 }
 
 }
