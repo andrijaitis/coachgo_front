@@ -50,6 +50,7 @@ import { BlackComponent } from './black/black.component';
 import { BlankComponent } from './blank/blank.component';
 import { EditRedultsModalComponent } from './edit-redults-modal/edit-redults-modal.component';
 import { Filter2Pipe } from './pipes/filter2.pipe';
+import { HelperFuncComponent } from './helper-func/helper-func.component';
 
 
 
@@ -84,8 +85,8 @@ import { Filter2Pipe } from './pipes/filter2.pipe';
     BlackComponent,
     BlankComponent,
     EditRedultsModalComponent,
-    Filter2Pipe
-
+    Filter2Pipe,
+    HelperFuncComponent,
 
 
   ],
