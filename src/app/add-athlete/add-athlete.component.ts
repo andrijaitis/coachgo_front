@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Athlete } from '../entities/athlete';
 import { AthleteService } from '../services/athlete.service';
-import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
