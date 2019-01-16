@@ -107,13 +107,13 @@
 
            <tr>
               <td>                       
-                  <mat-select formControlName="gender"  [(ngModel)]="athlete.gender" placeholder="Assume gender">
+                  <mat-select formControlName="gender"  [(ngModel)]="athlete.gender" placeholder="Select gender">
                       <mat-icon matSuffix>airplanemode_active</mat-icon>
                       <mat-option  value="male">Male</mat-option>
                       <mat-option  value="female">Female</mat-option>
                       <mat-option  value="other">Other</mat-option>
                       <mat-error *ngIf="athleteForm.controls.gender.errors?.required && athleteForm.controls.gender.touched">
-                          Please assume gender
+                          Please select gender
                       </mat-error>
                     </mat-select>
                 </td>
